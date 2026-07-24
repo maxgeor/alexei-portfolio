@@ -151,8 +151,16 @@ function Lightbox({
   }, []);
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyOverscroll = document.body.style.overscrollBehavior;
+    const previousHtmlOverscroll = document.documentElement.style.overscrollBehavior;
+    const isCoarse = window.matchMedia(COARSE_POINTER_QUERY).matches;
+
     document.body.style.overflow = "hidden";
+    if (isCoarse) {
+      document.body.style.overscrollBehavior = "none";
+      document.documentElement.style.overscrollBehavior = "none";
+    }
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -170,7 +178,9 @@ function Lightbox({
 
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.body.style.overscrollBehavior = previousBodyOverscroll;
+      document.documentElement.style.overscrollBehavior = previousHtmlOverscroll;
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [onClose, onPrev, onNext]);
@@ -184,7 +194,7 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 flex flex-col bg-bg px-[20px] pt-[16px] pb-[16px] text-ink"
+      className="fixed inset-0 z-50 flex flex-col bg-bg px-[20px] pt-[16px] pb-[16px] text-ink [@media(hover:none)_and_(pointer:coarse)]:touch-none [@media(hover:none)_and_(pointer:coarse)]:overscroll-none"
     >
       <div className="mb-[20px] flex items-center justify-between">
         <p id={titleId}>
@@ -200,7 +210,7 @@ function Lightbox({
       </div>
 
       <div
-        className="relative flex min-h-0 flex-1 items-center justify-center [@media(hover:none)_and_(pointer:coarse)]:touch-pan-y"
+        className="relative flex min-h-0 flex-1 items-center justify-center [@media(hover:none)_and_(pointer:coarse)]:touch-none"
         {...(isCoarsePointer
           ? {
               onTouchStart: handleTouchStart,
