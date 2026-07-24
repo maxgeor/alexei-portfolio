@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { bioCopy, bioImage } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -16,7 +16,8 @@ function EmailCopy() {
     return () => window.clearTimeout(timeout);
   }, [copied]);
 
-  async function copyEmail() {
+  async function copyEmail(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
     try {
       await navigator.clipboard.writeText(bioCopy.email);
       setCopied(true);
@@ -26,11 +27,11 @@ function EmailCopy() {
   }
 
   return (
-    <button
-      type="button"
+    <a
+      href={`mailto:${bioCopy.email}`}
       onClick={copyEmail}
       aria-label={copied ? "Copied" : "Copy email"}
-      className="group inline-flex cursor-pointer items-center gap-1 bg-transparent p-0 text-left text-ink"
+      className="group inline-flex cursor-pointer items-center gap-1 text-left text-ink no-underline hover:underline"
     >
       <span>{bioCopy.email}</span>
       <span
@@ -47,7 +48,7 @@ function EmailCopy() {
           <CopyIcon width={12} height={12} />
         )}
       </span>
-    </button>
+    </a>
   );
 }
 
@@ -57,17 +58,32 @@ export function BioContent() {
   return (
     <>
       <div className="max-w-prose space-y-5">
-        {bioCopy.paragraphs[lang].map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
+        <div
+          lang="en"
+          className={lang === "en" ? "space-y-5" : "hidden"}
+          hidden={lang !== "en"}
+        >
+          {bioCopy.paragraphs.en.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+        <div
+          lang="fr"
+          className={lang === "fr" ? "space-y-5" : "hidden"}
+          hidden={lang !== "fr"}
+        >
+          {bioCopy.paragraphs.fr.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
         <div className="grid grid-cols-[auto_1fr] gap-x-5">
-          <span>Email</span>
+          <span>{lang === "fr" ? "Courriel" : "Email"}</span>
           <EmailCopy />
           <span>Instagram</span>
           <a
             href={bioCopy.instagram.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
           >
             {bioCopy.instagram.handle}
           </a>
@@ -79,6 +95,8 @@ export function BioContent() {
         src={bioImage.image}
         alt={bioImage.alt[lang]}
         className="block h-auto w-full"
+        width={1600}
+        height={1200}
       />
     </>
   );

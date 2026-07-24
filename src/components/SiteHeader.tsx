@@ -97,6 +97,7 @@ export function SiteHeader() {
           <Link
             href="/"
             className="text-[clamp(1.25rem,4vw,2rem)] font-bold uppercase leading-none tracking-[-0.06em]"
+            aria-label="Alexei Kolakis-Landon — Home"
           >
             Alexei Kolakis-Landon
           </Link>

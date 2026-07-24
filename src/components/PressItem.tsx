@@ -10,7 +10,6 @@ type QuoteLang = "en" | "fr";
 export function PressItem({ item }: { item: PressItemData }) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
-  const quote = quoteLang === "en" ? item.quoteEn : item.quoteFr;
   const intro = item.intro[lang];
 
   return (
@@ -21,7 +20,26 @@ export function PressItem({ item }: { item: PressItemData }) {
         {intro.after}
       </p>
       <div>
-        <p className="max-w-prose indent-[-0.25em]">&ldquo;{quote}&rdquo;</p>
+        <blockquote className="m-0 border-0 p-0">
+          <p
+            lang="fr"
+            className={`max-w-prose indent-[-0.25em] ${
+              quoteLang === "fr" ? "" : "hidden"
+            }`}
+            hidden={quoteLang !== "fr"}
+          >
+            &ldquo;{item.quoteFr}&rdquo;
+          </p>
+          <p
+            lang="en"
+            className={`max-w-prose indent-[-0.25em] ${
+              quoteLang === "en" ? "" : "hidden"
+            }`}
+            hidden={quoteLang !== "en"}
+          >
+            &ldquo;{item.quoteEn}&rdquo;
+          </p>
+        </blockquote>
         <p>
           <button
             type="button"

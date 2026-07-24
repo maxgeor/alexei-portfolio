@@ -29,8 +29,8 @@ export const ui = {
 export const homeImage = {
   image: "/works/IMG_2321.jpg",
   alt: {
-    en: "Studio view with chair",
-    fr: "Vue d'atelier avec chaise",
+    en: "Studio view with chair — Alexei Kolakis-Landon, Montreal painter",
+    fr: "Vue d'atelier avec chaise — Alexei Kolakis-Landon, peintre montréalais",
   },
 } as const;
 
@@ -52,7 +52,7 @@ const materialCopper = {
 export const recentWorks: Work[] = [
   {
     image: "/works/01.AKL.png",
-    alt: "Ceremony, 2026",
+    alt: "Ceremony, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Ceremony",
     year: "2026",
     material: materialCanvasInkGraphite,
@@ -60,7 +60,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/04.AKL.png",
-    alt: "Angles, 2026",
+    alt: "Angles, 2026 — acrylic on copper by Alexei Kolakis-Landon",
     title: "Angles",
     year: "2026",
     material: materialCopper,
@@ -68,7 +68,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/02.AKL.png",
-    alt: "Bruised, 2025",
+    alt: "Bruised, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Bruised",
     year: "2025",
     material: materialCanvasInkGraphite,
@@ -76,7 +76,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/03.AKL.png",
-    alt: "Tangles, 2026",
+    alt: "Tangles, 2026 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
     title: "Tangles",
     year: "2026",
     material: materialCanvasGraphite,
@@ -84,7 +84,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/copper.png",
-    alt: "In Between, 2026",
+    alt: "In Between, 2026 — acrylic on copper diptych by Alexei Kolakis-Landon",
     title: "In Between",
     year: "2026",
     material: materialCopper,
@@ -95,7 +95,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_9265.png",
-    alt: "Wild Is The Wind, 2025",
+    alt: "Wild Is The Wind, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Wild Is The Wind",
     year: "2025",
     material: materialCanvasInkGraphite,
@@ -103,7 +103,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/DSCF3867.png",
-    alt: "Big Red, 2025",
+    alt: "Big Red, 2025 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
     title: "Big Red",
     year: "2025",
     material: materialCanvasGraphite,
@@ -111,7 +111,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_2083.png",
-    alt: "Heel, 2026",
+    alt: "Heel, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Heel",
     year: "2026",
     material: materialCanvasInkGraphite,
@@ -119,7 +119,7 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_7396.jpg",
-    alt: "Cantus in Memoriam",
+    alt: "Cantus in Memoriam — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Cantus in Memoriam",
     year: "",
     material: materialCanvasInkGraphite,
@@ -130,8 +130,8 @@ export const recentWorks: Work[] = [
 export const bioImage = {
   image: "/works/IMG_9813.jpg",
   alt: {
-    en: "Artwork documentation",
-    fr: "Documentation d'œuvre",
+    en: "Painting documentation — Alexei Kolakis-Landon",
+    fr: "Documentation de peinture — Alexei Kolakis-Landon",
   },
 } as const;
 
@@ -158,8 +158,8 @@ export const bioCopy = {
 export const exhibition = {
   image: "/works/exhibition.jpg",
   alt: {
-    en: "Installation view, Shared Ground",
-    fr: "Vue d'installation",
+    en: "Partial exhibition view of Ceremony, 2026 — duo exhibition with Tomas Dessureault, Montreal",
+    fr: "Vue partielle de l'exposition Ceremony, 2026 — exposition duo avec Tomas Dessureault, Montréal",
   },
   caption: {
     en: {
