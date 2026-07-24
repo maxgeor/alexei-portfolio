@@ -129,7 +129,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="pointer-events-auto cursor-pointer bg-transparent p-0"
+            className="nav-link menu-hit pointer-events-auto cursor-pointer bg-transparent p-0"
             aria-label={open ? ui.closeMenu[lang] : ui.openMenu[lang]}
             aria-expanded={open}
             aria-controls="site-menu"

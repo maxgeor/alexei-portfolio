@@ -85,7 +85,7 @@ function Lightbox({
         <button
           type="button"
           onClick={onClose}
-          className="cursor-pointer bg-transparent p-0 text-ink"
+          className="nav-link menu-hit cursor-pointer bg-transparent p-0 text-ink"
         >
           {ui.close[lang]}
         </button>
