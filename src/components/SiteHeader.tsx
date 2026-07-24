@@ -149,7 +149,7 @@ export function SiteHeader() {
         >
           <nav
             aria-label="Primary"
-            className="flex flex-1 flex-col items-center justify-center gap-5 p-[20px]"
+            className="flex w-full flex-1 flex-col items-stretch justify-center gap-5 p-[20px]"
           >
             {links.map((link) => (
               <Link
@@ -160,7 +160,7 @@ export function SiteHeader() {
                     setOpen(false);
                   }
                 }}
-                className="nav-link tracking-tight"
+                className="nav-link w-full justify-center tracking-tight"
               >
                 {ui[link.labelKey][lang]}
               </Link>
