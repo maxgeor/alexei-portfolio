@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
+import { ui } from "@/data/content";
 
 const links = [
-  { href: "/works", label: "Works" },
-  { href: "/exhibitions", label: "Exhibitions" },
-  { href: "/press", label: "Press" },
-  { href: "/bio", label: "Bio" },
+  { href: "/works", labelKey: "works" },
+  { href: "/exhibitions", labelKey: "exhibitionViews" },
+  { href: "/press", labelKey: "press" },
+  { href: "/bio", labelKey: "bio" },
 ] as const;
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -30,8 +32,37 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
+function LanguageToggle() {
+  const { lang, setLang } = useLanguage();
+
+  return (
+    <p className="text-xs">
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        className={`cursor-pointer bg-transparent p-0 ${
+          lang === "en" ? "opacity-100" : "opacity-50"
+        }`}
+      >
+        EN
+      </button>
+      <span className="opacity-50">/</span>
+      <button
+        type="button"
+        onClick={() => setLang("fr")}
+        className={`cursor-pointer bg-transparent p-0 ${
+          lang === "fr" ? "opacity-100" : "opacity-50"
+        }`}
+      >
+        FR
+      </button>
+    </p>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
+  const { lang } = useLanguage();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -73,7 +104,7 @@ export function SiteHeader() {
             type="button"
             onClick={() => setOpen((value) => !value)}
             className="cursor-pointer bg-transparent p-0"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? ui.closeMenu[lang] : ui.openMenu[lang]}
             aria-expanded={open}
             aria-controls="site-menu"
           >
@@ -100,10 +131,13 @@ export function SiteHeader() {
                 href={link.href}
                 className="text-sm tracking-tight"
               >
-                {link.label}
+                {ui[link.labelKey][lang]}
               </Link>
             ))}
           </nav>
+          <div className="flex justify-center p-[16px]">
+            <LanguageToggle />
+          </div>
         </div>
       ) : null}
     </>

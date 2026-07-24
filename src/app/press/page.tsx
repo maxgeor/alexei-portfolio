@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PressItem } from "@/components/PressItem";
 import { pressItems } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -10,14 +11,7 @@ export default function PressPage() {
     <main className="site-shell space-y-4 pb-[16px] text-xs">
       <ul className="space-y-4">
         {pressItems.map((item) => (
-          <li key={item.title} className="space-y-4">
-            <p>
-              {item.kind === "about" ? "About" : "By"} · {item.source} ·{" "}
-              {item.meta}
-            </p>
-            <h2>{item.title}</h2>
-            <p className="max-w-prose">{item.excerpt}</p>
-          </li>
+          <PressItem key={item.quoteEn} item={item} />
         ))}
       </ul>
     </main>

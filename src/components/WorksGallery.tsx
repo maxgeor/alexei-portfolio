@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 import type { Work } from "@/data/content";
+import { ui } from "@/data/content";
 
 function ImageCaption({
   title,
@@ -16,9 +18,7 @@ function ImageCaption({
 }) {
   return (
     <div>
-      <p>
-        {year ? `${title}, ${year}` : title}
-      </p>
+      <p>{year ? `${title}, ${year}` : title}</p>
       <p>{material}</p>
       <p>{size}</p>
     </div>
@@ -39,6 +39,7 @@ function Lightbox({
   onNext: () => void;
 }) {
   const titleId = useId();
+  const { lang } = useLanguage();
   const current = images[index];
 
   useEffect(() => {
@@ -75,7 +76,7 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 flex flex-col bg-bg p-[16px] text-xs text-ink"
+      className="fixed inset-0 z-50 flex flex-col bg-bg px-[16px] pt-[12px] pb-[12px] text-xs text-ink"
     >
       <div className="mb-[16px] flex items-center justify-between">
         <p id={titleId}>
@@ -86,7 +87,7 @@ function Lightbox({
           onClick={onClose}
           className="cursor-pointer bg-transparent p-0 text-xs text-ink"
         >
-          Close
+          {ui.close[lang]}
         </button>
       </div>
 
@@ -94,43 +95,43 @@ function Lightbox({
         <button
           type="button"
           onClick={onPrev}
-          aria-label="Previous image"
+          aria-label={ui.previousImage[lang]}
           className="absolute inset-y-0 left-0 z-10 flex w-[35%] cursor-pointer items-center justify-start bg-transparent pl-[16px] text-xs text-ink"
         >
           ←
         </button>
 
-        <div className="pointer-events-none relative z-0 flex max-h-full max-w-full flex-col items-start">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={current.image}
-            alt={current.alt}
-            className="mb-[4px] max-h-[calc(100dvh-32px-5rem)] max-w-[calc(100vw-32px)] object-contain"
-          />
-          <div className="w-full text-left">
-            <ImageCaption
-              title={current.title}
-              year={current.year}
-              material={current.material}
-              size={current.size}
-            />
-          </div>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={current.image}
+          alt={current.alt}
+          className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
+        />
 
         <button
           type="button"
           onClick={onNext}
-          aria-label="Next image"
+          aria-label={ui.nextImage[lang]}
           className="absolute inset-y-0 right-0 z-10 flex w-[35%] cursor-pointer items-center justify-end bg-transparent pr-[16px] text-xs text-ink"
         >
           →
         </button>
+      </div>
+
+      <div className="mt-[4px] text-left">
+        <ImageCaption
+          title={current.title}
+          year={current.year}
+          material={current.material[lang]}
+          size={current.size[lang]}
+        />
       </div>
     </div>
   );
 }
 
 export function WorksGallery({ images }: { images: readonly Work[] }) {
+  const { lang } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const close = useCallback(() => {
@@ -176,8 +177,8 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
             <ImageCaption
               title={work.title}
               year={work.year}
-              material={work.material}
-              size={work.size}
+              material={work.material[lang]}
+              size={work.size[lang]}
             />
           </li>
         ))}
