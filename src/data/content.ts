@@ -188,7 +188,7 @@ export const pressItems = [
         before: "Extrait du texte d'accompagnement de ",
         emphasis: "Ceremony",
         after:
-          ", une exposition duo avec Tomas Dessureault, par Thomas Antoine-Girard :",
+          ", une exposition duo avec Tomas Dessureault, par Thomas Antoine-Girard:",
       },
     },
     quoteEn:

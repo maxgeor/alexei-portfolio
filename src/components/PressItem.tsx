@@ -19,7 +19,7 @@ export function PressItem({ item }: { item: PressItemData }) {
         <em>{intro.emphasis}</em>
         {intro.after}
       </p>
-      <div className="space-y-10">
+      <div className="flex flex-col gap-5">
         <blockquote className="m-0 border-0 p-0">
           <p
             lang="fr"
