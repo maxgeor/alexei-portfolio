@@ -151,7 +151,7 @@ export const bioCopy = {
   email: "alexei.kolakis@icloud.com",
   instagram: {
     url: "https://www.instagram.com/alexeikolakislandon/",
-    handle: "@alexeikolakislandon",
+    handle: "alexeikolakislandon",
   },
 } as const;
 
