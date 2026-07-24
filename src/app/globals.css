@@ -3,7 +3,7 @@
 :root {
   --bg: #ffffff;
   --ink: #000000;
-  --page-pad: 16px;
+  --page-pad: 20px;
   --site-max: 48rem;
 }
 
@@ -27,6 +27,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
   -webkit-font-smoothing: antialiased;
 }
 

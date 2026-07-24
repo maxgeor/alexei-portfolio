@@ -14,7 +14,7 @@ export function PressItem({ item }: { item: PressItemData }) {
   const intro = item.intro[lang];
 
   return (
-    <li className="space-y-4">
+    <li className="space-y-5">
       <p className="max-w-prose">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -22,7 +22,7 @@ export function PressItem({ item }: { item: PressItemData }) {
       </p>
       <div>
         <p className="max-w-prose indent-[-0.25em]">&ldquo;{quote}&rdquo;</p>
-        <p className="text-xs">
+        <p>
           <button
             type="button"
             onClick={() => setQuoteLang("en")}

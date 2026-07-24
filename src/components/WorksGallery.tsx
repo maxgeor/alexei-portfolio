@@ -76,16 +76,16 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 flex flex-col bg-bg px-[16px] pt-[12px] pb-[12px] text-xs text-ink"
+      className="fixed inset-0 z-50 flex flex-col bg-bg px-[20px] pt-[16px] pb-[16px] text-ink"
     >
-      <div className="mb-[16px] flex items-center justify-between">
+      <div className="mb-[20px] flex items-center justify-between">
         <p id={titleId}>
           {index + 1} / {images.length}
         </p>
         <button
           type="button"
           onClick={onClose}
-          className="cursor-pointer bg-transparent p-0 text-xs text-ink"
+          className="cursor-pointer bg-transparent p-0 text-ink"
         >
           {ui.close[lang]}
         </button>
@@ -96,7 +96,7 @@ function Lightbox({
           type="button"
           onClick={onPrev}
           aria-label={ui.previousImage[lang]}
-          className="absolute inset-y-0 left-0 z-10 flex w-[35%] cursor-pointer items-center justify-start bg-transparent pl-[16px] text-xs text-ink"
+          className="absolute inset-y-0 left-0 z-10 flex w-[35%] cursor-pointer items-center justify-start bg-transparent pl-[20px] text-ink"
         >
           ←
         </button>
@@ -112,7 +112,7 @@ function Lightbox({
           type="button"
           onClick={onNext}
           aria-label={ui.nextImage[lang]}
-          className="absolute inset-y-0 right-0 z-10 flex w-[35%] cursor-pointer items-center justify-end bg-transparent pr-[16px] text-xs text-ink"
+          className="absolute inset-y-0 right-0 z-10 flex w-[35%] cursor-pointer items-center justify-end bg-transparent pr-[20px] text-ink"
         >
           →
         </button>
@@ -158,7 +158,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
 
   return (
     <>
-      <ul className="space-y-4">
+      <ul className="space-y-5">
         {images.map((work, index) => (
           <li key={work.image}>
             <button

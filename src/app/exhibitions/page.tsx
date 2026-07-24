@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function ExhibitionsPage() {
   return (
-    <main className="site-shell pb-[16px] text-xs">
+    <main className="site-shell pb-[20px]">
       <ExhibitionContent />
     </main>
   );

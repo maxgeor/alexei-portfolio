@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function PressPage() {
   return (
-    <main className="site-shell space-y-4 pb-[16px] text-xs">
-      <ul className="space-y-4">
+    <main className="site-shell space-y-5 pb-[20px]">
+      <ul className="space-y-5">
         {pressItems.map((item) => (
           <PressItem key={item.quoteEn} item={item} />
         ))}

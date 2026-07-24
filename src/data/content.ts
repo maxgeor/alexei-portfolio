@@ -15,7 +15,7 @@ export type Work = {
 };
 
 export const ui = {
-  works: { en: "Works", fr: "Œuvres" },
+  works: { en: "Recent Works", fr: "Œuvres récentes" },
   exhibitionViews: { en: "Exhibition Views", fr: "Vues d'exposition" },
   press: { en: "Press", fr: "Presse" },
   bio: { en: "Bio", fr: "Bio" },
@@ -162,8 +162,16 @@ export const exhibition = {
     fr: "Vue d'installation",
   },
   caption: {
-    en: "Partial exhibition view of Ceremony, 2026. Duo exhibition with Tomas Dessureault. Montreal, QC.",
-    fr: "Vue partielle de l'exposition Ceremony, 2026. Exposition duo avec Tomas Dessureault. Montréal, QC.",
+    en: {
+      before: "Partial exhibition view of ",
+      emphasis: "Ceremony",
+      after: ", 2026. Duo exhibition with Tomas Dessureault. Montreal, QC.",
+    },
+    fr: {
+      before: "Vue partielle de l'exposition ",
+      emphasis: "Ceremony",
+      after: ", 2026. Exposition duo avec Tomas Dessureault. Montréal, QC.",
+    },
   },
 } as const;
 

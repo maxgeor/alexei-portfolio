@@ -5,6 +5,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 
 export function ExhibitionContent() {
   const { lang } = useLanguage();
+  const caption = exhibition.caption[lang];
 
   return (
     <>
@@ -14,7 +15,11 @@ export function ExhibitionContent() {
         alt={exhibition.alt[lang]}
         className="mb-[4px] block w-full"
       />
-      <p>{exhibition.caption[lang]}</p>
+      <p>
+        {caption.before}
+        <em>{caption.emphasis}</em>
+        {caption.after}
+      </p>
     </>
   );
 }

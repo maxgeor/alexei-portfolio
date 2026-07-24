@@ -36,7 +36,7 @@ function LanguageToggle() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <p className="text-xs">
+    <p>
       <button
         type="button"
         onClick={() => setLang("en")}
@@ -92,8 +92,8 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50">
-        <div className="site-shell flex items-center justify-between pt-[16px] pb-4">
+      <header className="z-50">
+        <div className="site-shell flex items-center justify-between pt-[20px] pb-5">
           <Link
             href="/"
             className="text-[clamp(1.25rem,4vw,2rem)] font-bold uppercase leading-none tracking-[-0.06em]"
@@ -119,23 +119,23 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-0 z-40 flex flex-col bg-bg pt-16 text-xs text-ink"
+          className="fixed inset-0 z-40 flex flex-col bg-bg pt-16 text-ink"
         >
           <nav
             aria-label="Primary"
-            className="flex flex-1 flex-col items-center justify-center gap-4 p-[16px]"
+            className="flex flex-1 flex-col items-center justify-center gap-5 p-[20px]"
           >
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm tracking-tight"
+                className="tracking-tight"
               >
                 {ui[link.labelKey][lang]}
               </Link>
             ))}
           </nav>
-          <div className="flex justify-center p-[16px]">
+          <div className="flex justify-center p-[20px]">
             <LanguageToggle />
           </div>
         </div>

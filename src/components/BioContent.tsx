@@ -56,11 +56,11 @@ export function BioContent() {
 
   return (
     <>
-      <div className="max-w-prose space-y-4">
+      <div className="max-w-prose space-y-5">
         {bioCopy.paragraphs[lang].map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        <div className="grid grid-cols-[auto_1fr] gap-x-4">
+        <div className="grid grid-cols-[auto_1fr] gap-x-5">
           <span>Email</span>
           <EmailCopy />
           <span>Instagram</span>

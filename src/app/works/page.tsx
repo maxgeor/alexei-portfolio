@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function WorksPage() {
   return (
-    <main className="site-shell space-y-4 pb-[16px] text-xs">
+    <main className="site-shell space-y-5 pb-[20px]">
       <WorksGallery images={recentWorks} />
     </main>
   );
