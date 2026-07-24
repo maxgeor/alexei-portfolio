@@ -9,8 +9,8 @@ import { ui } from "@/data/content";
 const links = [
   { href: "/works", labelKey: "works" },
   { href: "/exhibitions", labelKey: "exhibitionViews" },
-  { href: "/press", labelKey: "press" },
   { href: "/bio", labelKey: "bio" },
+  { href: "/press", labelKey: "press" },
 ] as const;
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -129,7 +129,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="tracking-tight"
+                className="nav-link tracking-tight"
               >
                 {ui[link.labelKey][lang]}
               </Link>
