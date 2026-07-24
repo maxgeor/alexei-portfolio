@@ -96,7 +96,7 @@ function Lightbox({
           type="button"
           onClick={onPrev}
           aria-label={ui.previousImage[lang]}
-          className="absolute inset-y-0 left-0 z-10 flex w-[35%] cursor-pointer items-center justify-start bg-transparent pl-[20px] text-ink"
+          className="absolute inset-y-0 -left-5 z-10 flex w-[35%] cursor-w-resize items-center justify-start bg-transparent pl-[20px] text-ink"
         >
           ←
         </button>
@@ -112,7 +112,7 @@ function Lightbox({
           type="button"
           onClick={onNext}
           aria-label={ui.nextImage[lang]}
-          className="absolute inset-y-0 right-0 z-10 flex w-[35%] cursor-pointer items-center justify-end bg-transparent pr-[20px] text-ink"
+          className="absolute inset-y-0 -right-5 z-10 flex w-[35%] cursor-e-resize items-center justify-end bg-transparent pr-[20px] text-ink"
         >
           →
         </button>
