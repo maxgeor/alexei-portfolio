@@ -3,6 +3,7 @@
 :root {
   --bg: #ffffff;
   --ink: #000000;
+  --focus: #c38188;
   --page-pad: 20px;
   --site-max: 48rem;
 }
@@ -41,8 +42,17 @@ a:hover {
 }
 
 ::selection {
-  background: #902E49;
-  color: #fff;
+  background: #d4d4d4;
+  color: #000;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
 .site-shell {
