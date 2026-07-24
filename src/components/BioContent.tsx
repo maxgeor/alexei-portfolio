@@ -36,7 +36,7 @@ function EmailCopy() {
       <span>{bioCopy.email}</span>
       <span
         aria-hidden
-        className={`inline-flex size-[12px] shrink-0 items-center justify-center transition-opacity duration-150 ${
+        className={`inline-flex size-[12px] shrink-0 items-center justify-center ${
           copied
             ? "opacity-100"
             : "opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100"
@@ -57,7 +57,7 @@ export function BioContent() {
 
   return (
     <>
-      <div className="max-w-prose space-y-5">
+      <div className="max-w-[75ch] space-y-5">
         <div
           lang="en"
           className={lang === "en" ? "space-y-5" : "hidden"}

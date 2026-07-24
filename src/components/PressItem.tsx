@@ -14,16 +14,16 @@ export function PressItem({ item }: { item: PressItemData }) {
 
   return (
     <li className="space-y-5">
-      <p className="max-w-prose">
+      <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
         {intro.after}
       </p>
-      <div>
+      <div className="space-y-10">
         <blockquote className="m-0 border-0 p-0">
           <p
             lang="fr"
-            className={`max-w-prose indent-[-0.25em] ${
+            className={`max-w-[75ch] indent-[-0.25em] ${
               quoteLang === "fr" ? "" : "hidden"
             }`}
             hidden={quoteLang !== "fr"}
@@ -32,7 +32,7 @@ export function PressItem({ item }: { item: PressItemData }) {
           </p>
           <p
             lang="en"
-            className={`max-w-prose indent-[-0.25em] ${
+            className={`max-w-[75ch] indent-[-0.25em] ${
               quoteLang === "en" ? "" : "hidden"
             }`}
             hidden={quoteLang !== "en"}

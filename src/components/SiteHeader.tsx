@@ -60,6 +60,19 @@ function LanguageToggle() {
   );
 }
 
+const titleClassName =
+  "text-[clamp(1.25rem,4vw,2rem)] font-bold uppercase leading-none tracking-[-0.06em]";
+
+function SiteTitle() {
+  return (
+    <>
+      Al
+      <span className="tracking-[-0.025em]">e</span>
+      xei Kolakis-Landon
+    </>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const { lang } = useLanguage();
@@ -92,19 +105,31 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="z-50">
+      <header>
         <div className="site-shell flex items-center justify-between pt-[20px] pb-5">
           <Link
             href="/"
-            className="text-[clamp(1.25rem,4vw,2rem)] font-bold uppercase leading-none tracking-[-0.06em]"
+            className={titleClassName}
             aria-label="Alexei Kolakis-Landon — Home"
           >
-            Alexei Kolakis-Landon
+            <SiteTitle />
           </Link>
+          {/* Reserves the same space as the fixed menu button */}
+          <span className="invisible w-7 shrink-0" aria-hidden>
+            <MenuIcon open={false} />
+          </span>
+        </div>
+      </header>
+
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-50">
+        <div className="site-shell flex items-center justify-between pt-[20px] pb-5">
+          <span className={`${titleClassName} invisible`} aria-hidden>
+            <SiteTitle />
+          </span>
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="cursor-pointer bg-transparent p-0"
+            className="pointer-events-auto cursor-pointer bg-transparent p-0"
             aria-label={open ? ui.closeMenu[lang] : ui.openMenu[lang]}
             aria-expanded={open}
             aria-controls="site-menu"
@@ -112,7 +137,7 @@ export function SiteHeader() {
             <MenuIcon open={open} />
           </button>
         </div>
-      </header>
+      </div>
 
       {open ? (
         <div
@@ -130,6 +155,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setOpen(false)}
                 className="nav-link tracking-tight"
               >
                 {ui[link.labelKey][lang]}
