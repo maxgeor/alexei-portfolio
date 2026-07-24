@@ -155,7 +155,11 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  if (link.href === pathname) {
+                    setOpen(false);
+                  }
+                }}
                 className="nav-link tracking-tight"
               >
                 {ui[link.labelKey][lang]}

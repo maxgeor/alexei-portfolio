@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteHeader } from "@/components/SiteHeader";
 import { personJsonLd, websiteJsonLd } from "@/lib/structured-data";
 import { siteConfig } from "@/lib/site";
@@ -66,6 +67,7 @@ export default function RootLayout({
         <link rel="me" href={siteConfig.instagram} />
         <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
         <LanguageProvider>
+          <ScrollToTop />
           <SiteHeader />
           {children}
         </LanguageProvider>

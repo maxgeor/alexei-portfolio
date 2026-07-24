@@ -17,7 +17,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   height: 100%;
 }
 
@@ -84,10 +83,4 @@ a:hover {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
