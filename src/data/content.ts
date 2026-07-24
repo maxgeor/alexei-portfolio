@@ -60,8 +60,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/04.AKL.png",
-    alt: "Angles, 2026 — acrylic on copper by Alexei Kolakis-Landon",
-    title: "Angles",
+    alt: "Angels, 2026 — acrylic on copper by Alexei Kolakis-Landon",
+    title: "Angels",
     year: "2026",
     material: materialCopper,
     size: { en: "6 × 4 in", fr: "6 × 4 pouces" },
