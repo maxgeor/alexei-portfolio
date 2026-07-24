@@ -5,6 +5,8 @@ import { recentWorks } from "@/data/content";
 import { pageDescriptions, siteConfig } from "@/lib/site";
 import { worksItemListJsonLd } from "@/lib/structured-data";
 
+const title = `${siteConfig.name} — Recent Works`;
+
 export const metadata: Metadata = {
   title: "Recent Works",
   description: pageDescriptions.works,
@@ -12,13 +14,13 @@ export const metadata: Metadata = {
     canonical: "/works",
   },
   openGraph: {
-    title: `Recent Works — ${siteConfig.name}`,
+    title,
     description: pageDescriptions.works,
     url: "/works",
     type: "website",
   },
   twitter: {
-    title: `Recent Works — ${siteConfig.name}`,
+    title,
     description: pageDescriptions.works,
   },
 };
@@ -27,7 +29,7 @@ export default function WorksPage() {
   return (
     <main className="site-shell space-y-5 pb-[20px]">
       <JsonLd data={worksItemListJsonLd()} />
-      <h1 className="sr-only">Recent Works — {siteConfig.name}</h1>
+      <h1 className="sr-only">{title}</h1>
       <WorksGallery images={recentWorks} />
     </main>
   );

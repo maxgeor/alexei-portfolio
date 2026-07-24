@@ -4,6 +4,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { pageDescriptions, siteConfig } from "@/lib/site";
 import { exhibitionJsonLd } from "@/lib/structured-data";
 
+const title = `${siteConfig.name} — Exhibition Views`;
+
 export const metadata: Metadata = {
   title: "Exhibition Views",
   description: pageDescriptions.exhibitions,
@@ -11,13 +13,13 @@ export const metadata: Metadata = {
     canonical: "/exhibitions",
   },
   openGraph: {
-    title: `Exhibition Views — ${siteConfig.name}`,
+    title,
     description: pageDescriptions.exhibitions,
     url: "/exhibitions",
     type: "website",
   },
   twitter: {
-    title: `Exhibition Views — ${siteConfig.name}`,
+    title,
     description: pageDescriptions.exhibitions,
   },
 };
@@ -26,7 +28,7 @@ export default function ExhibitionsPage() {
   return (
     <main className="site-shell pb-[20px]">
       <JsonLd data={exhibitionJsonLd()} />
-      <h1 className="sr-only">Exhibition Views — {siteConfig.name}</h1>
+      <h1 className="sr-only">{title}</h1>
       <ExhibitionContent />
     </main>
   );

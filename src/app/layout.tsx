@@ -14,8 +14,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} — Painter`,
+    template: `${siteConfig.name} — %s`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -28,16 +28,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: `${siteConfig.name} — Painter`,
     description: siteConfig.description,
+    firstName: siteConfig.givenName,
+    lastName: siteConfig.familyName,
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: `${siteConfig.name} — Painter`,
     description: siteConfig.description,
   },
   robots: {

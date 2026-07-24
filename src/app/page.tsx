@@ -2,22 +2,26 @@ import type { Metadata } from "next";
 import { HomeHero } from "@/components/HomeHero";
 import { pageDescriptions, siteConfig } from "@/lib/site";
 
+const homeTitle = `${siteConfig.name} — Painter`;
+
 export const metadata: Metadata = {
   title: {
-    absolute: siteConfig.name,
+    absolute: homeTitle,
   },
   description: pageDescriptions.home,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: siteConfig.name,
+    title: homeTitle,
     description: pageDescriptions.home,
     url: "/",
-    type: "website",
+    type: "profile",
+    firstName: siteConfig.givenName,
+    lastName: siteConfig.familyName,
   },
   twitter: {
-    title: siteConfig.name,
+    title: homeTitle,
     description: pageDescriptions.home,
   },
 };
@@ -25,9 +29,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="site-shell flex min-h-0 flex-1 items-center justify-center pb-[20px]">
-      <h1 className="sr-only">
-        {siteConfig.name} — Montreal-based painter
-      </h1>
+      <h1 className="sr-only">{siteConfig.name}</h1>
+      <p className="sr-only">
+        Official website of Montreal-based painter {siteConfig.name}. Also known
+        as {siteConfig.alternateNames.slice(0, 2).join(", ")}.
+      </p>
       <HomeHero />
     </main>
   );

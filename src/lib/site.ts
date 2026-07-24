@@ -1,6 +1,14 @@
 export const siteConfig = {
   name: "Alexei Kolakis-Landon",
   shortName: "Alexei Kolakis-Landon",
+  givenName: "Alexei",
+  familyName: "Kolakis-Landon",
+  alternateNames: [
+    "Alexei Kolakis Landon",
+    "Alexei Kolakis",
+    "Alexei Kolakislandon",
+    "@alexeikolakislandon",
+  ],
   url: "https://alexeikolakislandon.com",
   locale: "en_CA",
   email: "alexei.kolakis@icloud.com",
@@ -11,32 +19,34 @@ export const siteConfig = {
     region: "QC",
     country: "CA",
   },
+  /** Primary SERP snippet for name searches */
   description:
-    "Alexei Kolakis-Landon is a Montreal-based painter whose process-driven acrylic works explore the body, vulnerability, and material transformation through gesture, staining, and erasure.",
+    "Alexei Kolakis-Landon is a Montreal-based painter. Official site — recent works, exhibition views, bio, and press.",
   descriptionFr:
-    "Alexei Kolakis-Landon est un peintre montréalais dont la pratique acrylique, fondée sur le processus, explore le corps, la vulnérabilité et la transformation matérielle par le geste, la tache et l'effacement.",
+    "Alexei Kolakis-Landon est un peintre montréalais. Site officiel — œuvres récentes, vues d'exposition, bio et presse.",
   keywords: [
     "Alexei Kolakis-Landon",
-    "Montreal painter",
-    "contemporary painting",
-    "abstract painting",
-    "Canadian artist",
-    "acrylic painting",
-    "process-based painting",
-    "Montreal art",
-    "peintre Montréal",
+    "Alexei Kolakis Landon",
+    "Alexei Kolakis",
+    "Alexei Kolakislandon",
+    "alexeikolakislandon",
+    "@alexeikolakislandon",
+    "Alexei Kolakis-Landon painter",
+    "Alexei Kolakis-Landon artist",
+    "Alexei Kolakis-Landon Montreal",
+    "Alexei Kolakis-Landon peintre",
   ],
 } as const;
 
 export const pageDescriptions = {
   home: siteConfig.description,
   works:
-    "Recent paintings by Alexei Kolakis-Landon — acrylic, ink, and graphite works on canvas and copper exploring gesture, material, and the body.",
+    "Alexei Kolakis-Landon — recent paintings in acrylic, ink, and graphite on canvas and copper.",
   exhibitions:
-    "Exhibition views of Ceremony (2026), a duo exhibition with Tomas Dessureault in Montreal, QC.",
-  bio: "Biography of Montreal-based painter Alexei Kolakis-Landon — practice, materials, and contact.",
+    "Alexei Kolakis-Landon — exhibition views of Ceremony (2026), duo exhibition with Tomas Dessureault in Montreal, QC.",
+  bio: "Alexei Kolakis-Landon — Montreal painter biography, practice, and contact (email and Instagram).",
   press:
-    "Press and critical writing on Alexei Kolakis-Landon, including text by Thomas Antoine-Girard for the Ceremony exhibition.",
+    "Alexei Kolakis-Landon — press and critical writing, including text by Thomas Antoine-Girard for Ceremony.",
 } as const;
 
 export function absoluteUrl(path = "/") {
