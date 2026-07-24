@@ -21,9 +21,7 @@ export function PressItem({ item }: { item: PressItemData }) {
         {intro.after}
       </p>
       <div>
-        <p className="max-w-prose indent-[-0.25em]">
-          &ldquo;{quote}&rdquo;
-        </p>
+        <p className="max-w-prose indent-[-0.25em]">&ldquo;{quote}&rdquo;</p>
         <p className="text-xs">
           <button
             type="button"
