@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -71,6 +72,7 @@ export default function RootLayout({
           <SiteHeader />
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
