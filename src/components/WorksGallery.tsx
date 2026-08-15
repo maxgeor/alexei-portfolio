@@ -299,6 +299,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
                 src={work.image}
                 alt={work.alt}
                 className="block h-auto w-full"
+                fetchPriority={index < 3 ? "high" : "auto"}
               />
             </button>
             <ImageCaption

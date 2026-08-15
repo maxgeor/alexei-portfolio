@@ -129,6 +129,7 @@ export function BioContent() {
         className="block h-auto w-full"
         width={1600}
         height={1200}
+        fetchPriority="high"
       />
     </>
   );

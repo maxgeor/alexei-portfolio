@@ -15,6 +15,7 @@ export function ExhibitionContent() {
         className="mb-[4px] block w-full"
         width={1600}
         height={1067}
+        fetchPriority="high"
       />
       <p
         lang="en"

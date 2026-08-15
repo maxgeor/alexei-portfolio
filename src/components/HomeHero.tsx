@@ -13,6 +13,7 @@ export function HomeHero() {
         src={homeImage.image}
         alt={homeImage.alt[lang]}
         className="block h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
+        fetchPriority="high"
       />
     </>
   );

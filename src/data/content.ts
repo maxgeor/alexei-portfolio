@@ -102,6 +102,14 @@ export const recentWorks: Work[] = [
     size: { en: "108 × 66 in", fr: "108 × 66 pouces" },
   },
   {
+    image: "/works/untitled-2026.png",
+    alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
+    title: "Untitled",
+    year: "2026",
+    material: { en: "Acrylic on paper", fr: "Acrylique sur papier" },
+    size: { en: "12 × 9 in", fr: "12 × 9 pouces" },
+  },
+  {
     image: "/works/DSCF3867.png",
     alt: "Big Red, 2025 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
     title: "Big Red",
