@@ -3,7 +3,7 @@ import { HomeHero } from "@/components/HomeHero";
 import { HomePageLink } from "@/components/HomePageLink";
 import { pageDescriptions, siteConfig } from "@/lib/site";
 
-const homeTitle = `${siteConfig.name} — Painter`;
+const homeTitle = siteConfig.name;
 
 export const metadata: Metadata = {
   title: {

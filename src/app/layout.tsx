@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Painter`,
+    default: siteConfig.name,
     template: `${siteConfig.name} — %s`,
   },
   description: siteConfig.description,
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Painter`,
+    title: siteConfig.name,
     description: siteConfig.description,
     firstName: siteConfig.givenName,
     lastName: siteConfig.familyName,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Painter`,
+    title: siteConfig.name,
     description: siteConfig.description,
   },
   robots: {
