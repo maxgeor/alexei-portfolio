@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -228,11 +229,13 @@ function Lightbox({
           ←
         </button>
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={current.image}
           alt={current.alt}
           className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
+          width={current.width}
+          height={current.height}
+          sizes="100vw"
         />
 
         <button
@@ -294,12 +297,14 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
               className="mb-[4px] block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
               aria-label={`View ${work.title} fullscreen`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={work.image}
                 alt={work.alt}
                 className="block h-auto w-full"
-                fetchPriority={index < 3 ? "high" : "auto"}
+                width={work.width}
+                height={work.height}
+                sizes="100vw"
+                preload={index < 3}
               />
             </button>
             <ImageCaption

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { exhibition } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -8,14 +9,14 @@ export function ExhibitionContent() {
 
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={exhibition.image}
         alt={exhibition.alt[lang]}
         className="mb-[4px] block w-full"
-        width={1600}
-        height={1067}
-        fetchPriority="high"
+        width={exhibition.width}
+        height={exhibition.height}
+        sizes="100vw"
+        preload
       />
       <p
         lang="en"

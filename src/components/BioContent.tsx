@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState, type MouseEvent } from "react";
 import { bioCopy, bioImage } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -122,14 +123,14 @@ export function BioContent() {
         </div>
       </div>
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={bioImage.image}
         alt={bioImage.alt[lang]}
         className="block h-auto w-full"
-        width={1600}
-        height={1200}
-        fetchPriority="high"
+        width={bioImage.width}
+        height={bioImage.height}
+        sizes="100vw"
+        preload
       />
     </>
   );

@@ -7,6 +7,8 @@ export type LocalizedString = {
 
 export type Work = {
   image: string;
+  width: number;
+  height: number;
   alt: string;
   title: string;
   year: string;
@@ -28,6 +30,8 @@ export const ui = {
 
 export const homeImage = {
   image: "/works/IMG_2321.jpg",
+  width: 3024,
+  height: 4032,
   alt: {
     en: "Studio view with chair — Alexei Kolakis-Landon, Montreal painter",
     fr: "Vue d'atelier avec chaise — Alexei Kolakis-Landon, peintre montréalais",
@@ -52,6 +56,8 @@ const materialCopper = {
 export const recentWorks: Work[] = [
   {
     image: "/works/01.AKL.png",
+    width: 1024,
+    height: 678,
     alt: "Ceremony, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Ceremony",
     year: "2026",
@@ -60,6 +66,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/04.AKL.png",
+    width: 1024,
+    height: 682,
     alt: "Angels, 2026 — acrylic on copper by Alexei Kolakis-Landon",
     title: "Angels",
     year: "2026",
@@ -68,6 +76,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/02.AKL.png",
+    width: 1024,
+    height: 710,
     alt: "Bruised, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Bruised",
     year: "2025",
@@ -76,6 +86,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/03.AKL.png",
+    width: 1024,
+    height: 700,
     alt: "Tangles, 2026 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
     title: "Tangles",
     year: "2026",
@@ -84,6 +96,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/copper.png",
+    width: 805,
+    height: 1024,
     alt: "In Between, 2026 — acrylic on copper diptych by Alexei Kolakis-Landon",
     title: "In Between",
     year: "2026",
@@ -95,6 +109,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_9265.png",
+    width: 1024,
+    height: 794,
     alt: "Wild Is The Wind, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Wild Is The Wind",
     year: "2025",
@@ -103,6 +119,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/untitled-2026.png",
+    width: 1024,
+    height: 774,
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -111,6 +129,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/DSCF3867.png",
+    width: 1024,
+    height: 682,
     alt: "Big Red, 2025 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
     title: "Big Red",
     year: "2025",
@@ -119,6 +139,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_2083.png",
+    width: 807,
+    height: 1024,
     alt: "Heel, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Heel",
     year: "2026",
@@ -127,6 +149,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/IMG_7396.jpg",
+    width: 4025,
+    height: 2881,
     alt: "Cantus in Memoriam — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
     title: "Cantus in Memoriam",
     year: "",
@@ -137,6 +161,8 @@ export const recentWorks: Work[] = [
 
 export const bioImage = {
   image: "/works/IMG_9813.jpg",
+  width: 4032,
+  height: 3024,
   alt: {
     en: "Painting documentation — Alexei Kolakis-Landon",
     fr: "Documentation de peinture — Alexei Kolakis-Landon",
@@ -165,6 +191,8 @@ export const bioCopy = {
 
 export const exhibition = {
   image: "/works/exhibition.jpg",
+  width: 1024,
+  height: 682,
   alt: {
     en: "Partial exhibition view of Ceremony, 2026 — duo exhibition with Tomas Dessureault, Montreal",
     fr: "Vue partielle de l'exposition Ceremony, 2026 — exposition duo avec Tomas Dessureault, Montréal",

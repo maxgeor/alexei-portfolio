@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { homeImage } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -8,12 +9,14 @@ export function HomeHero() {
 
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={homeImage.image}
         alt={homeImage.alt[lang]}
         className="block h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
-        fetchPriority="high"
+        width={homeImage.width}
+        height={homeImage.height}
+        sizes="100vw"
+        preload
       />
     </>
   );
