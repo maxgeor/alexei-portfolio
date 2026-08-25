@@ -62,7 +62,7 @@ export const recentWorks: Work[] = [
     title: "Ceremony",
     year: "2026",
     material: materialCanvasInkGraphite,
-    size: { en: "180 × 66 in", fr: "180 × 66 pouces" },
+    size: { en: "180 × 66 inches", fr: "180 × 66 pouces" },
   },
   {
     image: "/works/04.AKL.png",
@@ -72,7 +72,7 @@ export const recentWorks: Work[] = [
     title: "Angels",
     year: "2026",
     material: materialCopper,
-    size: { en: "6 × 4 in", fr: "6 × 4 pouces" },
+    size: { en: "6 × 4 inches", fr: "6 × 4 pouces" },
   },
   {
     image: "/works/02.AKL.png",
@@ -82,7 +82,7 @@ export const recentWorks: Work[] = [
     title: "Bruised",
     year: "2025",
     material: materialCanvasInkGraphite,
-    size: { en: "108 × 66 in", fr: "108 × 66 pouces" },
+    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
     image: "/works/03.AKL.png",
@@ -92,7 +92,7 @@ export const recentWorks: Work[] = [
     title: "Tangles",
     year: "2026",
     material: materialCanvasGraphite,
-    size: { en: "108 × 66 in", fr: "108 × 66 pouces" },
+    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
     image: "/works/copper.png",
@@ -103,7 +103,7 @@ export const recentWorks: Work[] = [
     year: "2026",
     material: materialCopper,
     size: {
-      en: "Diptych, each panel 12 × 24 in",
+      en: "Diptych, each panel 12 × 24 inches",
       fr: "Diptyque, chaque panneau 12 × 24 pouces",
     },
   },
@@ -115,7 +115,7 @@ export const recentWorks: Work[] = [
     title: "Wild Is The Wind",
     year: "2025",
     material: materialCanvasInkGraphite,
-    size: { en: "108 × 66 in", fr: "108 × 66 pouces" },
+    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
     image: "/works/untitled-2026.png",
@@ -125,7 +125,7 @@ export const recentWorks: Work[] = [
     title: "Untitled",
     year: "2026",
     material: { en: "Acrylic on paper", fr: "Acrylique sur papier" },
-    size: { en: "12 × 9 in", fr: "12 × 9 pouces" },
+    size: { en: "12 × 9 inches", fr: "12 × 9 pouces" },
   },
   {
     image: "/works/untitled-grid-2026.png",
@@ -138,7 +138,7 @@ export const recentWorks: Work[] = [
       en: "Acrylic on grid paper",
       fr: "Acrylique sur papier quadrillé",
     },
-    size: { en: "11 × 8.5 in", fr: "11 × 8.5 pouces" },
+    size: { en: "11 × 8.5 inches", fr: "11 × 8.5 pouces" },
   },
   {
     image: "/works/DSCF3867.png",
@@ -148,7 +148,7 @@ export const recentWorks: Work[] = [
     title: "Big Red",
     year: "2025",
     material: materialCanvasGraphite,
-    size: { en: "108 × 60 in", fr: "108 × 60 pouces" },
+    size: { en: "108 × 60 inches", fr: "108 × 60 pouces" },
   },
   {
     image: "/works/IMG_2083.png",
@@ -158,7 +158,7 @@ export const recentWorks: Work[] = [
     title: "Heel",
     year: "2026",
     material: materialCanvasInkGraphite,
-    size: { en: "66 × 84 in", fr: "66 × 84 pouces" },
+    size: { en: "66 × 84 inches", fr: "66 × 84 pouces" },
   },
   {
     image: "/works/IMG_7396.jpg",
@@ -168,7 +168,7 @@ export const recentWorks: Work[] = [
     title: "Cantus in Memoriam",
     year: "2025",
     material: materialCanvasInkGraphite,
-    size: { en: "156 × 66 in", fr: "156 × 66 pouces" },
+    size: { en: "156 × 66 inches", fr: "156 × 66 pouces" },
   },
 ];
 
