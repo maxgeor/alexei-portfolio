@@ -101,10 +101,10 @@ function PressLinkItemComponent({
       <Image
         src={item.image}
         alt={item.alt[lang]}
-        className="block h-auto w-full max-w-[75ch]"
+        className="block h-auto w-[min(100%,11rem)]"
         width={item.width}
         height={item.height}
-        sizes="(max-width: 48rem) 75ch, 48rem"
+        sizes="11rem"
       />
       <div className="max-w-[75ch] space-y-0">
         <p>
