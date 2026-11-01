@@ -8,7 +8,7 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 type QuoteLang = "en" | "fr";
 
 const pressSectionClassName =
-  "space-y-5 border-l border-ink/10 pl-6";
+  "space-y-5 border-l border-ink/25 pl-6";
 
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
