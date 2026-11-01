@@ -313,7 +313,6 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
               <ResponsivePicture
                 alt={work.alt}
                 className="block h-auto w-full"
-                preload={index === 0}
                 mobile={{
                   src: work.image,
                   width: work.width,

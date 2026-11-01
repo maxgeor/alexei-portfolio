@@ -42,6 +42,7 @@ export function ResponsivePicture({
         alt={alt}
         className={className}
         fetchPriority={preload ? "high" : undefined}
+        loading={preload ? "eager" : undefined}
       />
     </picture>
   );
