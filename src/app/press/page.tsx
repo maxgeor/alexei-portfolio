@@ -35,9 +35,8 @@ export default function PressPage() {
           <PressItem
             key={item.type === "link" ? item.url : item.quoteEn}
             item={item}
-            className={
-              index > 0 ? "mt-5 border-t border-ink/10 pt-5" : undefined
-            }
+            showDivider={index > 0}
+            className={index > 0 ? "mt-5" : undefined}
           />
         ))}
       </ul>

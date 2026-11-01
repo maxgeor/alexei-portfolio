@@ -7,12 +7,23 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
+function PressDivider() {
+  return (
+    <div
+      className="max-w-[75ch] border-t border-ink/10 pt-5"
+      aria-hidden
+    />
+  );
+}
+
 function PressQuoteItem({
   item,
   className,
+  showDivider,
 }: {
   item: PressQuoteItem;
   className?: string;
+  showDivider?: boolean;
 }) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
@@ -20,6 +31,7 @@ function PressQuoteItem({
 
   return (
     <li className={`space-y-5${className ? ` ${className}` : ""}`}>
+      {showDivider ? <PressDivider /> : null}
       <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -75,14 +87,17 @@ function PressQuoteItem({
 function PressLinkItemComponent({
   item,
   className,
+  showDivider,
 }: {
   item: PressLinkItem;
   className?: string;
+  showDivider?: boolean;
 }) {
   const { lang } = useLanguage();
 
   return (
     <li className={`space-y-5${className ? ` ${className}` : ""}`}>
+      {showDivider ? <PressDivider /> : null}
       <Image
         src={item.image}
         alt={item.alt[lang]}
@@ -113,12 +128,26 @@ function PressLinkItemComponent({
 export function PressItem({
   item,
   className,
+  showDivider,
 }: {
   item: PressItemData;
   className?: string;
+  showDivider?: boolean;
 }) {
   if (item.type === "link") {
-    return <PressLinkItemComponent item={item} className={className} />;
+    return (
+      <PressLinkItemComponent
+        item={item}
+        className={className}
+        showDivider={showDivider}
+      />
+    );
   }
-  return <PressQuoteItem item={item} className={className} />;
+  return (
+    <PressQuoteItem
+      item={item}
+      className={className}
+      showDivider={showDivider}
+    />
+  );
 }
