@@ -26,25 +26,30 @@ export const metadata: Metadata = {
   },
 };
 
+function PressDivider() {
+  return (
+    <li className="max-w-[75ch] list-none" aria-hidden>
+      <div className="h-[0.5px] bg-black" />
+    </li>
+  );
+}
+
 export default function PressPage() {
   return (
     <main className="site-shell space-y-5 pb-[20px] text-pretty">
       <JsonLd data={pressJsonLd()} />
       <h1 className="sr-only">{title}</h1>
       <ul className="m-0 flex list-none flex-col gap-6 p-0">
-        {pressItems.map((item, index) => {
+        {pressItems.map((item) => {
           const key = item.type === "link" ? item.url : item.quoteEn;
           return (
             <Fragment key={key}>
-              {index > 0 ? (
-                <li className="max-w-[75ch] list-none" aria-hidden>
-                  —
-                </li>
-              ) : null}
+              <PressDivider />
               <PressItem item={item} />
             </Fragment>
           );
         })}
+        <PressDivider />
       </ul>
     </main>
   );
