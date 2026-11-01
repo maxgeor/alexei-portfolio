@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -90,7 +91,10 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             className="no-underline hover:no-underline"
           >
             {item.title[lang]}
-            <span aria-hidden> ↗</span>
+            <ArrowTopRightIcon
+              className="ml-0.5 inline-block size-[1em] shrink-0 align-[-0.05em]"
+              aria-hidden
+            />
           </a>
         </p>
         <p>
