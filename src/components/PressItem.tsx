@@ -96,7 +96,12 @@ function PressLinkItemComponent({
           {item.publication} | {item.author}
         </p>
         <p>
-          <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
             {item.title[lang]}
           </a>
         </p>
