@@ -5,10 +5,18 @@ export type LocalizedString = {
   fr: string;
 };
 
+export type WorkImageSource = {
+  image: string;
+  width: number;
+  height: number;
+};
+
 export type Work = {
   image: string;
   width: number;
   height: number;
+  /** Higher-resolution asset loaded only in the fullscreen lightbox. */
+  lightbox?: WorkImageSource;
   alt: string;
   title: string;
   year: string;
@@ -67,8 +75,13 @@ const materialAcrylicGridPaper = {
 export const recentWorks: Work[] = [
   {
     image: "/works/untitled-magenta-2026.jpg",
-    width: 1800,
-    height: 1357,
+    width: 1024,
+    height: 772,
+    lightbox: {
+      image: "/works/untitled-magenta-2026-full.jpg",
+      width: 1800,
+      height: 1357,
+    },
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -77,8 +90,13 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/untitled-umber-paper-2026.jpg",
-    width: 1800,
-    height: 1445,
+    width: 1024,
+    height: 822,
+    lightbox: {
+      image: "/works/untitled-umber-paper-2026-full.jpg",
+      width: 1800,
+      height: 1445,
+    },
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -87,8 +105,13 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/untitled-plum-grid-2026.jpg",
-    width: 1800,
-    height: 1431,
+    width: 1024,
+    height: 814,
+    lightbox: {
+      image: "/works/untitled-plum-grid-2026-full.jpg",
+      width: 1800,
+      height: 1431,
+    },
     alt: "Untitled, 2026 — acrylic on grid paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",

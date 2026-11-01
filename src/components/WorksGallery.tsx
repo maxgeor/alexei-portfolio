@@ -16,6 +16,12 @@ import { ui } from "@/data/content";
 const COARSE_POINTER_QUERY = "(hover: none) and (pointer: coarse)";
 const SWIPE_THRESHOLD = 50;
 const SWIPE_AXIS_LOCK = 10;
+const GALLERY_IMAGE_SIZES = "(max-width: 48rem) 100vw, 48rem";
+const LIGHTBOX_IMAGE_SIZES = "100vw";
+
+function lightboxImageFor(work: Work) {
+  return work.lightbox ?? work;
+}
 
 function subscribeCoarsePointer(onStoreChange: () => void) {
   const media = window.matchMedia(COARSE_POINTER_QUERY);
@@ -190,6 +196,8 @@ function Lightbox({
     return null;
   }
 
+  const lightboxImage = lightboxImageFor(current);
+
   return (
     <div
       role="dialog"
@@ -230,12 +238,12 @@ function Lightbox({
         </button>
 
         <Image
-          src={current.image}
+          src={lightboxImage.image}
           alt={current.alt}
           className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
-          width={current.width}
-          height={current.height}
-          sizes="100vw"
+          width={lightboxImage.width}
+          height={lightboxImage.height}
+          sizes={LIGHTBOX_IMAGE_SIZES}
         />
 
         <button
@@ -303,8 +311,8 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
                 className="block h-auto w-full"
                 width={work.width}
                 height={work.height}
-                sizes="100vw"
-                preload={index < 2}
+                sizes={GALLERY_IMAGE_SIZES}
+                preload={index === 0}
               />
             </button>
             <ImageCaption
