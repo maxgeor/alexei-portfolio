@@ -47,10 +47,10 @@ function ImageCaption({
   size: string;
 }) {
   return (
-    <div>
-      <p>{year ? `${title}, ${year}` : title}</p>
-      <p>{material}</p>
-      <p>{size}</p>
+    <div className="mb-px space-y-0">
+      <p className="m-0">{year ? `${title}, ${year}` : title}</p>
+      <p className="m-0">{material}</p>
+      <p className="m-0">{size}</p>
     </div>
   );
 }
@@ -290,11 +290,11 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
     <>
       <ul className="space-y-5">
         {images.map((work, index) => (
-          <li key={work.image}>
+          <li key={work.image} className="flex flex-col gap-[7px]">
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
-              className="mb-[4px] block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
+              className="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left leading-[0]"
               aria-label={`View ${work.title} fullscreen`}
             >
               <Image

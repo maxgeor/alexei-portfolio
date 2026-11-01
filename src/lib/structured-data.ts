@@ -139,18 +139,48 @@ export function exhibitionJsonLd() {
 }
 
 export function pressJsonLd() {
-  const item = pressItems[0];
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
-    author: {
-      "@type": "Person",
-      name: "Thomas Antoine-Girard",
-    },
-    about: { "@id": absoluteUrl("/#person") },
-    description: `${item.intro.en.before}${item.intro.en.emphasis}${item.intro.en.after}`,
-    text: item.quoteEn,
-    inLanguage: "en",
-  };
+  const ceremony = pressItems.find((item) => item.type === "quote");
+  const niche = pressItems.find((item) => item.type === "link");
+
+  const graph: Record<string, unknown>[] = [];
+
+  if (ceremony && ceremony.type === "quote") {
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
+      author: {
+        "@type": "Person",
+        name: "Thomas Antoine-Girard",
+      },
+      about: { "@id": absoluteUrl("/#person") },
+      description: `${ceremony.intro.en.before}${ceremony.intro.en.emphasis}${ceremony.intro.en.after}`,
+      text: ceremony.quoteEn,
+      inLanguage: "en",
+    });
+  }
+
+  if (niche && niche.type === "link") {
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: niche.title.en,
+      url: niche.url,
+      datePublished: niche.datePublished,
+      image: absoluteUrl(niche.image),
+      author: {
+        "@type": "Person",
+        name: niche.author,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: niche.publication,
+      },
+      about: { "@id": absoluteUrl("/#person") },
+      description: `${niche.publication} — ${niche.title.en}`,
+      inLanguage: "en",
+    });
+  }
+
+  return graph;
 }

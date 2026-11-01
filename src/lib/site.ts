@@ -48,7 +48,7 @@ export const pageDescriptions = {
   contact:
     "Contact Alexei Kolakis-Landon — email and Instagram for inquiries and studio correspondence.",
   press:
-    "Alexei Kolakis-Landon — press and critical writing, including text by Thomas Antoine-Girard for Ceremony.",
+    "Alexei Kolakis-Landon — press and interviews, including Niche MTL and text by Thomas Antoine-Girard for Ceremony.",
 } as const;
 
 export function absoluteUrl(path = "/") {

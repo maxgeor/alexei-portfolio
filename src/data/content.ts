@@ -228,8 +228,52 @@ export const exhibition = {
   },
 } as const;
 
-export const pressItems = [
+export type PressQuoteItem = {
+  type: "quote";
+  intro: {
+    en: { before: string; emphasis: string; after: string };
+    fr: { before: string; emphasis: string; after: string };
+  };
+  quoteEn: string;
+  quoteFr: string;
+};
+
+export type PressLinkItem = {
+  type: "link";
+  image: string;
+  width: number;
+  height: number;
+  alt: LocalizedString;
+  publication: string;
+  author: string;
+  title: LocalizedString;
+  url: string;
+  datePublished: string;
+};
+
+export type PressItem = PressQuoteItem | PressLinkItem;
+
+export const pressItems: PressItem[] = [
   {
+    type: "link",
+    image: "/press/niche-there-will-be-blood.jpg",
+    width: 1200,
+    height: 1200,
+    alt: {
+      en: "Studio view — Alexei Kolakis-Landon, photographed for Niche MTL",
+      fr: "Vue d'atelier — Alexei Kolakis-Landon, photographié pour Niche MTL",
+    },
+    publication: "Niche MTL",
+    author: "Ryan Alexander Diduck",
+    title: {
+      en: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
+      fr: "There Will Be Blood : entretien avec Alexei Kolakis-Landon",
+    },
+    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
+    datePublished: "2026-10-11",
+  },
+  {
+    type: "quote",
     intro: {
       en: {
         before: "Excerpt from the accompanying text for ",
