@@ -9,7 +9,7 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 type QuoteLang = "en" | "fr";
 
 const pressItemClassName =
-  "max-w-[75ch] space-y-5 border-t-[0.5px] border-black pt-[4px]";
+  "max-w-[75ch] space-y-5 border-t border-black pt-[8px]";
 
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
