@@ -16,7 +16,13 @@ export function PressItem({ item }: { item: PressItemData }) {
     <li className="space-y-5">
       <p className="max-w-[75ch]">
         {intro.before}
-        <em>{intro.emphasis}</em>
+        {"url" in item && item.url ? (
+          <em>
+            <a href={item.url}>{intro.emphasis}</a>
+          </em>
+        ) : (
+          <em>{intro.emphasis}</em>
+        )}
         {intro.after}
       </p>
       <div className="flex flex-col gap-5">

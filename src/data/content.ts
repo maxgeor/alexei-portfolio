@@ -226,6 +226,26 @@ export const exhibition = {
 
 export const pressItems = [
   {
+    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
+    intro: {
+      en: {
+        before: "Excerpt from ",
+        emphasis: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
+        after: ", by Ryan Alexander-Diduck for Niche MTL:",
+      },
+      fr: {
+        before: "Extrait de ",
+        emphasis:
+          "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
+        after: ", par Ryan Alexander-Diduck pour Niche MTL :",
+      },
+    },
+    quoteEn:
+      "Making art is me processing my lived experience. It's my life. It's the most meditative and the most important aspect of my life. It's like drinking or breathing. It's just something I have to do. Painting is the one thing that brings me back to reality. It makes me feel like everything is going to be okay.",
+    quoteFr:
+      "Faire de l'art, c'est traiter mon vécu. C'est ma vie. C'est l'aspect le plus méditatif et le plus important de ma vie. C'est comme boire ou respirer. C'est quelque chose que je dois faire. La peinture est la seule chose qui me ramène à la réalité. Elle me fait sentir que tout ira bien.",
+  },
+  {
     intro: {
       en: {
         before: "Excerpt from the accompanying text for ",
