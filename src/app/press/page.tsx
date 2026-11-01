@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import { PressItem } from "@/components/PressItem";
 import { pressItems } from "@/data/content";
