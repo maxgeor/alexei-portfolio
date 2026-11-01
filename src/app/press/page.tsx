@@ -30,13 +30,11 @@ export default function PressPage() {
     <main className="site-shell space-y-5 pb-[20px]">
       <JsonLd data={pressJsonLd()} />
       <h1 className="sr-only">{title}</h1>
-      <ul className="m-0 list-none p-0">
-        {pressItems.map((item, index) => (
+      <ul className="m-0 flex list-none flex-col gap-6 p-0">
+        {pressItems.map((item) => (
           <PressItem
             key={item.type === "link" ? item.url : item.quoteEn}
             item={item}
-            showDivider={index > 0}
-            className={index > 0 ? "mt-5" : undefined}
           />
         ))}
       </ul>

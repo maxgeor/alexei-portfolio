@@ -7,31 +7,16 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
-function PressDivider() {
-  return (
-    <div
-      className="max-w-[75ch] border-t border-ink/10 pt-5"
-      aria-hidden
-    />
-  );
-}
+const pressSectionClassName =
+  "space-y-5 border-l border-ink/10 pl-6";
 
-function PressQuoteItem({
-  item,
-  className,
-  showDivider,
-}: {
-  item: PressQuoteItem;
-  className?: string;
-  showDivider?: boolean;
-}) {
+function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
   const intro = item.intro[lang];
 
   return (
-    <li className={`space-y-5${className ? ` ${className}` : ""}`}>
-      {showDivider ? <PressDivider /> : null}
+    <li className={pressSectionClassName}>
       <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -84,20 +69,11 @@ function PressQuoteItem({
   );
 }
 
-function PressLinkItemComponent({
-  item,
-  className,
-  showDivider,
-}: {
-  item: PressLinkItem;
-  className?: string;
-  showDivider?: boolean;
-}) {
+function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className={`space-y-5${className ? ` ${className}` : ""}`}>
-      {showDivider ? <PressDivider /> : null}
+    <li className={pressSectionClassName}>
       <Image
         src={item.image}
         alt={item.alt[lang]}
@@ -125,29 +101,9 @@ function PressLinkItemComponent({
   );
 }
 
-export function PressItem({
-  item,
-  className,
-  showDivider,
-}: {
-  item: PressItemData;
-  className?: string;
-  showDivider?: boolean;
-}) {
+export function PressItem({ item }: { item: PressItemData }) {
   if (item.type === "link") {
-    return (
-      <PressLinkItemComponent
-        item={item}
-        className={className}
-        showDivider={showDivider}
-      />
-    );
+    return <PressLinkItemComponent item={item} />;
   }
-  return (
-    <PressQuoteItem
-      item={item}
-      className={className}
-      showDivider={showDivider}
-    />
-  );
+  return <PressQuoteItem item={item} />;
 }
