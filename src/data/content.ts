@@ -30,9 +30,16 @@ export const ui = {
 } as const;
 
 export const homeImage = {
-  image: "/home/hero.jpg",
-  width: 1400,
-  height: 1867,
+  mobile: {
+    image: "/home/hero.jpg",
+    width: 1400,
+    height: 1867,
+  },
+  desktop: {
+    image: "/works/IMG_2321.jpg",
+    width: 3024,
+    height: 4032,
+  },
   alt: {
     en: "Studio view with chair — Alexei Kolakis-Landon, Montreal painter",
     fr: "Vue d'atelier avec chaise — Alexei Kolakis-Landon, peintre montréalais",

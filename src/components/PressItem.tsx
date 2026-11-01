@@ -5,6 +5,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "@/data/content";
+import {
+  IMAGE_QUALITY_MOBILE,
+  PRESS_IMAGE_SIZES,
+} from "@/lib/image-presets";
 
 type QuoteLang = "en" | "fr";
 
@@ -116,7 +120,8 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
               className="block h-auto w-full"
               width={item.width}
               height={item.height}
-              sizes="33ch"
+              sizes={PRESS_IMAGE_SIZES}
+              quality={IMAGE_QUALITY_MOBILE}
               preload
             />
           </div>
