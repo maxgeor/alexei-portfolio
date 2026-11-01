@@ -80,7 +80,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex cursor-pointer flex-col gap-[7px] no-underline hover:no-underline"
+        className="flex cursor-pointer flex-col gap-[7px] no-underline hover:!no-underline"
       >
         <div className="mt-1 max-w-[33ch] leading-[0]">
           <Image
