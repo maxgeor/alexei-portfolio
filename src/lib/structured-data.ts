@@ -148,7 +148,7 @@ export function pressJsonLd() {
     graph.push({
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
+      headline: `${siteConfig.name} — Ceremony accompanying text`,
       author: {
         "@type": "Person",
         name: "Thomas Antoine-Girard",

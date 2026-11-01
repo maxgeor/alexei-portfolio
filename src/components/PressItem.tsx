@@ -8,11 +8,45 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
-const pressItemSharedClassName =
-  "max-w-[75ch] space-y-5 border-t border-black";
+const pressItemContentClassName = "max-w-[75ch] space-y-5";
 
-const pressQuoteItemClassName = `${pressItemSharedClassName} pt-[4px]`;
-const pressLinkItemClassName = `${pressItemSharedClassName} pt-[8px]`;
+function PressDivider() {
+  return (
+    <hr className="m-0 w-full border-0 border-t border-black" aria-hidden />
+  );
+}
+
+function QuoteText({
+  text,
+  lang,
+  quoteLang,
+}: {
+  text: string;
+  lang: QuoteLang;
+  quoteLang: QuoteLang;
+}) {
+  const paragraphs = text.split("\n\n").filter(Boolean);
+  const visible = quoteLang === lang;
+
+  return (
+    <div
+      className={visible ? "flex flex-col gap-5" : "hidden"}
+      hidden={!visible}
+    >
+      {paragraphs.map((paragraph, index) => (
+        <p key={index} lang={lang} className="m-0 max-w-[75ch]">
+          {index === 0 ? (
+            <span className="-ml-[0.425em]">&ldquo;</span>
+          ) : null}
+          {paragraph}
+          {index === paragraphs.length - 1 ? (
+            <span>&rdquo;</span>
+          ) : null}
+        </p>
+      ))}
+    </div>
+  );
+}
 
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
@@ -20,56 +54,43 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const intro = item.intro[lang];
 
   return (
-    <li className={pressQuoteItemClassName}>
-      <p className="max-w-[75ch]">
-        {intro.before}
-        <em>{intro.emphasis}</em>
-        {intro.after}
-      </p>
-      <div className="flex flex-col gap-5">
-        <blockquote className="m-0 border-0 p-0">
-          <p
-            lang="fr"
-            className={`max-w-[75ch] ${
-              quoteLang === "fr" ? "" : "hidden"
-            }`}
-            hidden={quoteLang !== "fr"}
-          >
-            <span className="-ml-[0.425em]">&ldquo;</span>
-            {item.quoteFr}&rdquo;
+    <li>
+      <div className="site-shell">
+        <PressDivider />
+        <div className={`${pressItemContentClassName} pt-[4px]`}>
+          <p className="max-w-[75ch]">
+            {intro.before}
+            <em>{intro.emphasis}</em>
+            {intro.after}
           </p>
-          <p
-            lang="en"
-            className={`max-w-[75ch] ${
-              quoteLang === "en" ? "" : "hidden"
-            }`}
-            hidden={quoteLang !== "en"}
-          >
-            <span className="-ml-[0.425em]">&ldquo;</span>
-            {item.quoteEn}&rdquo;
-          </p>
-        </blockquote>
-        <p>
-          <button
-            type="button"
-            onClick={() => setQuoteLang("en")}
-            className={`cursor-pointer bg-transparent p-0 ${
-              quoteLang === "en" ? "opacity-100" : "opacity-50"
-            }`}
-          >
-            EN
-          </button>
-          <span className="opacity-50">/</span>
-          <button
-            type="button"
-            onClick={() => setQuoteLang("fr")}
-            className={`cursor-pointer bg-transparent p-0 ${
-              quoteLang === "fr" ? "opacity-100" : "opacity-50"
-            }`}
-          >
-            FR
-          </button>
-        </p>
+          <div className="flex flex-col gap-5">
+            <blockquote className="m-0 border-0 p-0">
+              <QuoteText text={item.quoteFr} lang="fr" quoteLang={quoteLang} />
+              <QuoteText text={item.quoteEn} lang="en" quoteLang={quoteLang} />
+            </blockquote>
+            <p>
+              <button
+                type="button"
+                onClick={() => setQuoteLang("en")}
+                className={`cursor-pointer bg-transparent p-0 ${
+                  quoteLang === "en" ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                EN
+              </button>
+              <span className="opacity-50">/</span>
+              <button
+                type="button"
+                onClick={() => setQuoteLang("fr")}
+                className={`cursor-pointer bg-transparent p-0 ${
+                  quoteLang === "fr" ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                FR
+              </button>
+            </p>
+          </div>
+        </div>
       </div>
     </li>
   );
@@ -79,37 +100,40 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className={pressLinkItemClassName}>
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="press-link group flex cursor-pointer flex-col gap-[7px] no-underline"
-      >
-        <div className="max-w-[33ch] leading-[0]">
-          <Image
-            src={item.image}
-            alt={item.alt[lang]}
-            className="block h-auto w-full"
-            width={item.width}
-            height={item.height}
-          sizes="33ch"
-          preload
-        />
-        </div>
-        <div className="max-w-[75ch] space-y-0 leading-[20px]">
-          <p className="m-0">
-            <span className="press-link__title">{item.title[lang]}</span>
-            <ArrowTopRightIcon
-              className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
-              aria-hidden
+    <li>
+      <div className="site-shell">
+        <PressDivider />
+        <a
+          className="press-link group flex max-w-[75ch] cursor-pointer flex-col gap-[7px] pt-[8px] no-underline"
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="max-w-[33ch] leading-[0]">
+            <Image
+              src={item.image}
+              alt={item.alt[lang]}
+              className="block h-auto w-full"
+              width={item.width}
+              height={item.height}
+              sizes="33ch"
+              preload
             />
-          </p>
-          <p className="press-link__meta m-0">
-            {item.publication}, {item.author}
-          </p>
-        </div>
-      </a>
+          </div>
+          <div className="max-w-[75ch] space-y-0 leading-[20px]">
+            <p className="m-0">
+              <span className="press-link__title">{item.title[lang]}</span>
+              <ArrowTopRightIcon
+                className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
+                aria-hidden
+              />
+            </p>
+            <p className="press-link__meta m-0">
+              {item.publication}, {item.author}
+            </p>
+          </div>
+        </a>
+      </div>
     </li>
   );
 }
