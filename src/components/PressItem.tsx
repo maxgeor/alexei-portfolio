@@ -93,7 +93,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           </a>
         </p>
         <p>
-          {item.publication},{item.author}
+          {item.publication}, {item.author}
         </p>
       </div>
     </li>
