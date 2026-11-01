@@ -92,7 +92,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           >
             {item.title[lang]}
             <ArrowTopRightIcon
-              className="size-[calc(1em-2px)] shrink-0 [&>path]:stroke-current [&>path]:[paint-order:stroke_fill] [&>path]:stroke-[0.5px]"
+              className="size-[calc(1em-2px)] shrink-0 translate-y-px"
               aria-hidden
             />
           </a>
