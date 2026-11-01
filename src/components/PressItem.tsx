@@ -21,7 +21,7 @@ function PressExternalLinkArrow({ className }: { className?: string }) {
       <path
         d="M4.25 11V4.25H10.75"
         stroke="currentColor"
-        strokeWidth="1.15"
+        strokeWidth="0.575"
         strokeLinecap="square"
         strokeLinejoin="miter"
       />
