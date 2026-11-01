@@ -84,7 +84,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="press-link group flex cursor-pointer flex-col gap-[7px] no-underline"
+        className="press-link group flex cursor-pointer flex-col gap-[4px] no-underline"
       >
         <div className="max-w-[33ch] leading-[0]">
           <Image
