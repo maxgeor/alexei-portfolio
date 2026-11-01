@@ -101,7 +101,7 @@ export const recentWorks: Work[] = [
     title: "Untitled",
     year: "2026",
     material: materialAcrylicPaper,
-    size: { en: "11 × 8.5 inches", fr: "11 × 8.5 pouces" },
+    size: { en: "11 × 9 inches", fr: "11 × 9 pouces" },
   },
   {
     image: "/works/untitled-plum-grid-2026.jpg",
