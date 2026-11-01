@@ -75,36 +75,36 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className="flex flex-col gap-[7px]">
-      <div className="mt-1 max-w-[33ch] leading-[0]">
-        <Image
-          src={item.image}
-          alt={item.alt[lang]}
-          className="block h-auto w-full"
-          width={item.width}
-          height={item.height}
-          sizes="33ch"
-        />
-      </div>
-      <div className="max-w-[75ch] space-y-0 leading-[20px]">
-        <p className="m-0">
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="no-underline hover:no-underline"
-          >
+    <li>
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex cursor-pointer flex-col gap-[7px] no-underline hover:no-underline"
+      >
+        <div className="mt-1 max-w-[33ch] leading-[0]">
+          <Image
+            src={item.image}
+            alt={item.alt[lang]}
+            className="block h-auto w-full"
+            width={item.width}
+            height={item.height}
+            sizes="33ch"
+          />
+        </div>
+        <div className="max-w-[75ch] space-y-0 leading-[20px]">
+          <p className="m-0">
             {item.title[lang]}
             <ArrowTopRightIcon
               className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
               aria-hidden
             />
-          </a>
-        </p>
-        <p className="m-0">
-          {item.publication}, {item.author}
-        </p>
-      </div>
+          </p>
+          <p className="m-0">
+            {item.publication}, {item.author}
+          </p>
+        </div>
+      </a>
     </li>
   );
 }
