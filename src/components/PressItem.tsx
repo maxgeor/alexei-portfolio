@@ -10,26 +10,6 @@ type QuoteLang = "en" | "fr";
 
 const pressSectionClassName = "space-y-5";
 
-function PressExternalLinkArrow({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 15 15"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden
-      fill="none"
-    >
-      <path
-        d="M4.25 11V4.25H10.75"
-        stroke="currentColor"
-        strokeWidth="1.15"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
-    </svg>
-  );
-}
-
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
@@ -115,7 +95,10 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             className="no-underline hover:no-underline"
           >
             {item.title[lang]}
-            <PressExternalLinkArrow className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle" />
+            <ArrowTopRightIcon
+              className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
+              aria-hidden
+            />
           </a>
         </p>
         <p className="m-0">
