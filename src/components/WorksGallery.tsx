@@ -48,9 +48,9 @@ function ImageCaption({
 }) {
   return (
     <div className="space-y-0">
-      <p>{year ? `${title}, ${year}` : title}</p>
-      <p>{material}</p>
-      <p>{size}</p>
+      <p className="m-0">{year ? `${title}, ${year}` : title}</p>
+      <p className="m-0">{material}</p>
+      <p className="m-0">{size}</p>
     </div>
   );
 }
@@ -290,7 +290,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
     <>
       <ul className="space-y-5">
         {images.map((work, index) => (
-          <li key={work.image} className="flex flex-col gap-1">
+          <li key={work.image} className="flex flex-col gap-1.5">
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
