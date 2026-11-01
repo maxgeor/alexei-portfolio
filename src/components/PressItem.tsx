@@ -106,7 +106,7 @@ function PressLinkItemComponent({
         height={item.height}
         sizes="33ch"
       />
-      <div className="max-w-[33ch] space-y-0">
+      <div className="max-w-[75ch] space-y-0">
         <p>
           {item.publication} | {item.author}
         </p>
