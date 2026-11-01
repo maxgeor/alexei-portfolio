@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { ResponsivePicture } from "@/components/ResponsivePicture";
 import {
   CONTENT_COLUMN_SIZES,
@@ -23,8 +23,96 @@ import { ui } from "@/data/content";
 const COARSE_POINTER_QUERY = "(hover: none) and (pointer: coarse)";
 const SWIPE_THRESHOLD = 50;
 const SWIPE_AXIS_LOCK = 10;
+const LIGHTBOX_BEHIND = 1;
+const LIGHTBOX_AHEAD = 3;
+
+const preloadedLightboxSources = new Set<string>();
+
 function lightboxImageFor(work: Work) {
   return work.lightbox ?? work;
+}
+
+function wrappedIndex(index: number, length: number) {
+  return ((index % length) + length) % length;
+}
+
+function lightboxWindow(index: number, length: number) {
+  const indices: number[] = [];
+  const seen = new Set<number>();
+
+  for (let offset = -LIGHTBOX_BEHIND; offset <= LIGHTBOX_AHEAD; offset += 1) {
+    const imageIndex = wrappedIndex(index + offset, length);
+    if (seen.has(imageIndex)) {
+      continue;
+    }
+    seen.add(imageIndex);
+    indices.push(imageIndex);
+  }
+
+  return indices;
+}
+
+function lightboxPreloadOrder(index: number, length: number) {
+  const order: number[] = [];
+  const seen = new Set<number>([index]);
+
+  const push = (offset: number) => {
+    const imageIndex = wrappedIndex(index + offset, length);
+    if (seen.has(imageIndex)) {
+      return;
+    }
+    seen.add(imageIndex);
+    order.push(imageIndex);
+  };
+
+  push(1);
+  push(-1);
+  for (let offset = 2; offset < length; offset += 1) {
+    push(offset);
+  }
+  for (let offset = 2; offset < length; offset += 1) {
+    push(-offset);
+  }
+
+  return order;
+}
+
+function preloadLightboxImage(work: Work) {
+  const source = lightboxImageFor(work);
+  const { src, srcSet, sizes } = getImageProps({
+    alt: "",
+    src: source.image,
+    width: source.width,
+    height: source.height,
+    sizes: LIGHTBOX_SIZES,
+    quality: IMAGE_QUALITY_DESKTOP,
+    loading: "eager",
+  }).props;
+  const cacheKey = srcSet || src;
+
+  if (!cacheKey || preloadedLightboxSources.has(cacheKey)) {
+    return Promise.resolve();
+  }
+
+  preloadedLightboxSources.add(cacheKey);
+
+  return new Promise<void>((resolve) => {
+    const image = document.createElement("img");
+    const finish = () => resolve();
+    image.onload = finish;
+    image.onerror = finish;
+    if (sizes) {
+      image.sizes = sizes;
+    }
+    if (srcSet) {
+      image.srcset = srcSet;
+    }
+    if (src) {
+      image.src = src;
+      return;
+    }
+    finish();
+  });
 }
 
 function subscribeCoarsePointer(onStoreChange: () => void) {
@@ -162,6 +250,34 @@ function Lightbox({
   }, []);
 
   useEffect(() => {
+    if (images.length <= 1) {
+      return;
+    }
+
+    let cancelled = false;
+    const order = lightboxPreloadOrder(index, images.length);
+
+    async function warmUpcomingImages() {
+      for (const imageIndex of order) {
+        if (cancelled) {
+          return;
+        }
+        const work = images[imageIndex];
+        if (!work) {
+          continue;
+        }
+        await preloadLightboxImage(work);
+      }
+    }
+
+    void warmUpcomingImages();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [images, index]);
+
+  useEffect(() => {
     const previousBodyOverflow = document.body.style.overflow;
     const previousBodyOverscroll = document.body.style.overscrollBehavior;
     const previousHtmlOverscroll = document.documentElement.style.overscrollBehavior;
@@ -200,7 +316,8 @@ function Lightbox({
     return null;
   }
 
-  const lightboxImage = lightboxImageFor(current);
+  const mountedIndices = lightboxWindow(index, images.length);
+  const nextIndex = wrappedIndex(index + 1, images.length);
 
   return (
     <div
@@ -241,15 +358,33 @@ function Lightbox({
           ←
         </button>
 
-        <Image
-          src={lightboxImage.image}
-          alt={current.alt}
-          className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
-          width={lightboxImage.width}
-          height={lightboxImage.height}
-          sizes={LIGHTBOX_SIZES}
-          quality={IMAGE_QUALITY_DESKTOP}
-        />
+        <div className="pointer-events-none absolute inset-0 z-0">
+          {mountedIndices.map((imageIndex) => {
+            const work = images[imageIndex];
+            if (!work) {
+              return null;
+            }
+            const source = lightboxImageFor(work);
+            const active = imageIndex === index;
+            return (
+              <Image
+                key={work.image}
+                src={source.image}
+                alt={active ? work.alt : ""}
+                aria-hidden={active ? undefined : true}
+                fill
+                className={`object-contain ${active ? "z-[1]" : "opacity-0"}`}
+                sizes={LIGHTBOX_SIZES}
+                quality={IMAGE_QUALITY_DESKTOP}
+                preload={active}
+                loading="eager"
+                fetchPriority={
+                  !active && imageIndex === nextIndex ? "high" : undefined
+                }
+              />
+            );
+          })}
+        </div>
 
         <button
           type="button"
