@@ -33,7 +33,7 @@ export function AboutContent() {
       <Image
         src={aboutImage.image}
         alt={aboutImage.alt[lang]}
-        className="block h-auto w-full"
+        className="block h-auto w-full pt-[4px]"
         width={aboutImage.width}
         height={aboutImage.height}
         sizes="100vw"
