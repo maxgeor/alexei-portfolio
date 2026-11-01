@@ -23,6 +23,9 @@ import { ui } from "@/data/content";
 const COARSE_POINTER_QUERY = "(hover: none) and (pointer: coarse)";
 const SWIPE_THRESHOLD = 50;
 const SWIPE_AXIS_LOCK = 10;
+function lightboxImageFor(work: Work) {
+  return work.lightbox ?? work;
+}
 
 function subscribeCoarsePointer(onStoreChange: () => void) {
   const media = window.matchMedia(COARSE_POINTER_QUERY);
@@ -197,6 +200,8 @@ function Lightbox({
     return null;
   }
 
+  const lightboxImage = lightboxImageFor(current);
+
   return (
     <div
       role="dialog"
@@ -237,11 +242,11 @@ function Lightbox({
         </button>
 
         <Image
-          src={current.image}
+          src={lightboxImage.image}
           alt={current.alt}
           className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
-          width={current.width}
-          height={current.height}
+          width={lightboxImage.width}
+          height={lightboxImage.height}
           sizes={LIGHTBOX_SIZES}
           quality={IMAGE_QUALITY_DESKTOP}
         />
@@ -308,7 +313,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
               <ResponsivePicture
                 alt={work.alt}
                 className="block h-auto w-full"
-                preload={index < 2}
+                preload={index === 0}
                 mobile={{
                   src: work.image,
                   width: work.width,
@@ -317,9 +322,9 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
                   sizes: CONTENT_COLUMN_SIZES,
                 }}
                 desktop={{
-                  src: work.image,
-                  width: work.width,
-                  height: work.height,
+                  src: work.lightbox?.image ?? work.image,
+                  width: work.lightbox?.width ?? work.width,
+                  height: work.lightbox?.height ?? work.height,
                   quality: IMAGE_QUALITY_DESKTOP,
                   sizes: CONTENT_COLUMN_SIZES,
                 }}

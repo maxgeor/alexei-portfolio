@@ -5,10 +5,18 @@ export type LocalizedString = {
   fr: string;
 };
 
+export type WorkImageSource = {
+  image: string;
+  width: number;
+  height: number;
+};
+
 export type Work = {
   image: string;
   width: number;
   height: number;
+  /** Higher-resolution asset loaded only in the fullscreen lightbox. */
+  lightbox?: WorkImageSource;
   alt: string;
   title: string;
   year: string;
@@ -61,6 +69,16 @@ const materialCopper = {
   fr: "Acrylique sur cuivre",
 } as const;
 
+const materialAcrylicPaper = {
+  en: "Acrylic on paper",
+  fr: "Acrylique sur papier",
+} as const;
+
+const materialAcrylicGridPaper = {
+  en: "Acrylic on grid paper",
+  fr: "Acrylique sur papier quadrillé",
+} as const;
+
 export const recentWorks: Work[] = [
   {
     image: "/works/01.AKL.png",
@@ -83,6 +101,61 @@ export const recentWorks: Work[] = [
     size: { en: "6 × 4 inches", fr: "6 × 4 pouces" },
   },
   {
+    image: "/works/untitled-magenta-2026.jpg",
+    width: 1024,
+    height: 772,
+    lightbox: {
+      image: "/works/untitled-magenta-2026-full.jpg",
+      width: 1800,
+      height: 1357,
+    },
+    alt: "And finally the wind takes him, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
+    title: "And finally the wind takes him",
+    year: "2026",
+    material: materialCanvasInkGraphite,
+    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
+  },
+  {
+    image: "/works/untitled-umber-paper-2026.jpg",
+    width: 1024,
+    height: 822,
+    lightbox: {
+      image: "/works/untitled-umber-paper-2026-full.jpg",
+      width: 1800,
+      height: 1445,
+    },
+    alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
+    title: "Untitled",
+    year: "2026",
+    material: materialAcrylicPaper,
+    size: { en: "11 × 9 inches", fr: "11 × 9 pouces" },
+  },
+  {
+    image: "/works/untitled-plum-grid-2026.jpg",
+    width: 1024,
+    height: 814,
+    lightbox: {
+      image: "/works/untitled-plum-grid-2026-full.jpg",
+      width: 1800,
+      height: 1431,
+    },
+    alt: "Bathers, 2026 — acrylic on paper by Alexei Kolakis-Landon",
+    title: "Bathers",
+    year: "2026",
+    material: materialAcrylicPaper,
+    size: { en: "11 × 9 inches", fr: "11 × 9 pouces" },
+  },
+  {
+    image: "/works/IMG_2083.png",
+    width: 807,
+    height: 1024,
+    alt: "Heel, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
+    title: "Heel",
+    year: "2026",
+    material: materialCanvasInkGraphite,
+    size: { en: "66 × 84 inches", fr: "66 × 84 pouces" },
+  },
+  {
     image: "/works/02.AKL.png",
     width: 1024,
     height: 710,
@@ -93,13 +166,13 @@ export const recentWorks: Work[] = [
     size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
-    image: "/works/03.AKL.png",
+    image: "/works/IMG_9265.png",
     width: 1024,
-    height: 700,
-    alt: "Tangles, 2026 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
-    title: "Tangles",
-    year: "2026",
-    material: materialCanvasGraphite,
+    height: 794,
+    alt: "Wild Is The Wind, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
+    title: "Wild Is The Wind",
+    year: "2025",
+    material: materialCanvasInkGraphite,
     size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
@@ -114,16 +187,6 @@ export const recentWorks: Work[] = [
       en: "Diptych, each panel 12 × 24 inches",
       fr: "Diptyque, chaque panneau 12 × 24 pouces",
     },
-  },
-  {
-    image: "/works/IMG_9265.png",
-    width: 1024,
-    height: 794,
-    alt: "Wild Is The Wind, 2025 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
-    title: "Wild Is The Wind",
-    year: "2025",
-    material: materialCanvasInkGraphite,
-    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
     image: "/works/untitled-2026.png",
@@ -142,11 +205,18 @@ export const recentWorks: Work[] = [
     alt: "Untitled, 2026 — acrylic on grid paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
-    material: {
-      en: "Acrylic on grid paper",
-      fr: "Acrylique sur papier quadrillé",
-    },
+    material: materialAcrylicGridPaper,
     size: { en: "11 × 8.5 inches", fr: "11 × 8.5 pouces" },
+  },
+  {
+    image: "/works/03.AKL.png",
+    width: 1024,
+    height: 700,
+    alt: "Tangles, 2026 — acrylic and graphite on canvas by Alexei Kolakis-Landon",
+    title: "Tangles",
+    year: "2026",
+    material: materialCanvasGraphite,
+    size: { en: "108 × 66 inches", fr: "108 × 66 pouces" },
   },
   {
     image: "/works/DSCF3867.png",
@@ -157,16 +227,6 @@ export const recentWorks: Work[] = [
     year: "2025",
     material: materialCanvasGraphite,
     size: { en: "108 × 60 inches", fr: "108 × 60 pouces" },
-  },
-  {
-    image: "/works/IMG_2083.png",
-    width: 807,
-    height: 1024,
-    alt: "Heel, 2026 — acrylic, ink, and graphite on canvas by Alexei Kolakis-Landon",
-    title: "Heel",
-    year: "2026",
-    material: materialCanvasInkGraphite,
-    size: { en: "66 × 84 inches", fr: "66 × 84 pouces" },
   },
   {
     image: "/works/IMG_7396.jpg",
@@ -193,12 +253,12 @@ export const aboutImage = {
 export const aboutCopy = {
   paragraphs: {
     en: [
-      "Alexei Kolakis-Landon is a Montreal-based painter, interested in painting as both a physical act and an intimate record of change. His practice is an exploration of the material qualities of paint as a means of reflecting on the body and its states of vulnerability, fragility and transformation. Working intuitively and without predetermined compositions, he embraces chance, accident, and the agency of the material itself, allowing the process of painting to guide each work as it unfolds.",
+      "Alexei Kolakis-Landon is an emerging Montreal-based painter, interested in painting as both a physical act and an intimate record of change. His practice is an exploration of the material qualities of paint as a means of reflecting on the body and its states of vulnerability, fragility and transformation. Working intuitively and without predetermined compositions, he embraces chance, accident, and the agency of the material itself, allowing the process of painting to guide each work as it unfolds.",
       "His paintings operate as a diaristic process through which memories, emotions, and lived experiences are translated into gesture and surface. Built through thin layers of acrylic, the works develop through bleeding, staining, dripping, and erasure, emphasizing paint's capacity to shift between control and surrender. These material transformations parallel the body's own instability and continual negotiation between presence and absence, resilience and vulnerability.",
       "Rather than arriving at fixed images, his paintings remain open and responsive. Forms emerge and dissolve, reflecting the fluid nature of memory and emotional experience. Through this ongoing process, painting becomes both a material investigation and a space where bodily and psychological experience are held in tension.",
     ],
     fr: [
-      "Alexei Kolakis-Landon est un peintre basé à Montréal, intéressé par la peinture comme acte physique et comme trace intime du changement. Sa pratique explore les qualités matérielles de la peinture comme moyen de réfléchir au corps et à ses états de vulnérabilité, de fragilité et de transformation. Travaillant de manière intuitive et sans compositions prédéterminées, il accueille le hasard, l'accident et l'agence de la matière elle-même, laissant le processus de peindre guider chaque œuvre au fur et à mesure qu'elle se déploie.",
+      "Alexei Kolakis-Landon est un peintre émergent basé à Montréal, intéressé par la peinture comme acte physique et comme trace intime du changement. Sa pratique explore les qualités matérielles de la peinture comme moyen de réfléchir au corps et à ses états de vulnérabilité, de fragilité et de transformation. Travaillant de manière intuitive et sans compositions prédéterminées, il accueille le hasard, l'accident et l'agence de la matière elle-même, laissant le processus de peindre guider chaque œuvre au fur et à mesure qu'elle se déploie.",
       "Ses peintures fonctionnent comme un processus diaristique à travers lequel souvenirs, émotions et expériences vécues se traduisent en geste et en surface. Construites par de minces couches d'acrylique, les œuvres se développent par coulures, taches, gouttes et effacements, soulignant la capacité de la peinture à passer du contrôle à l'abandon. Ces transformations matérielles font écho à l'instabilité du corps et à sa négociation continue entre présence et absence, résilience et vulnérabilité.",
       "Plutôt que d'aboutir à des images figées, ses peintures restent ouvertes et réactives. Les formes émergent et se dissolvent, reflétant la nature fluide de la mémoire et de l'expérience émotionnelle. À travers ce processus continu, la peinture devient à la fois une investigation matérielle et un espace où l'expérience corporelle et psychologique se tient en tension.",
     ],
