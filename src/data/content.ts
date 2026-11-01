@@ -255,6 +255,24 @@ export type PressItem = PressQuoteItem | PressLinkItem;
 
 export const pressItems: PressItem[] = [
   {
+    type: "link",
+    image: "/press/niche-there-will-be-blood.jpg",
+    width: 1200,
+    height: 1200,
+    alt: {
+      en: "Studio view — Alexei Kolakis-Landon, photographed for Niche MTL",
+      fr: "Vue d'atelier — Alexei Kolakis-Landon, photographié pour Niche MTL",
+    },
+    publication: "Niche MTL",
+    author: "Ryan Alexander Diduck",
+    title: {
+      en: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
+      fr: "There Will Be Blood : entretien avec Alexei Kolakis-Landon",
+    },
+    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
+    datePublished: "2026-10-11",
+  },
+  {
     type: "quote",
     intro: {
       en: {
@@ -274,24 +292,6 @@ export const pressItems: PressItem[] = [
       "In Alexei Kolakis-Landon’s work, painting is built around a material and process-based understanding of the medium. The subject of the work is not representation, but painting itself: its drips, its density, its erasures, its direct relationship to the body and to time. Nourished by an intuitive and almost ceremonial approach to the act of painting, his practice moves between the spontaneity of gesture, visual suspension, and psychological tension. Surfaces become traces of a process in which matter acts as an extension of human experience, while organic tones close to flesh or blood take part in a tension between the body and pictorial matter.",
     quoteFr:
       "Chez Alexei Kolakis-Landon, la peinture se construit autour d’une compréhension matérielle et processuelle du médium. Le sujet de l’œuvre n’est pas la représentation, mais la peinture elle-même : ses coulures, sa densité, ses effacements, son rapport direct au corps et au temps. Nourrie par une approche intuitive et presque cérémonielle de l’acte de peindre, sa pratique oscille entre spontanéité du geste, suspension visuelle et tension psychologique. Les surfaces deviennent ainsi les traces d’un processus dans lequel la matière agit comme prolongement de l’expérience humaine, tandis que des tonalités organiques proches de la chair ou du sang participent à une mise en tension du corps et de la matière picturale.",
-  },
-  {
-    type: "link",
-    image: "/press/niche-there-will-be-blood.jpg",
-    width: 1200,
-    height: 1200,
-    alt: {
-      en: "Studio view — Alexei Kolakis-Landon, photographed for Niche MTL",
-      fr: "Vue d'atelier — Alexei Kolakis-Landon, photographié pour Niche MTL",
-    },
-    publication: "Niche MTL",
-    author: "Ryan Alexander Diduck",
-    title: {
-      en: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
-      fr: "There Will Be Blood : entretien avec Alexei Kolakis-Landon",
-    },
-    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
-    datePublished: "2026-10-11",
   },
 ];
 

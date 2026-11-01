@@ -7,13 +7,19 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
-function PressQuoteItem({ item }: { item: PressQuoteItem }) {
+function PressQuoteItem({
+  item,
+  className,
+}: {
+  item: PressQuoteItem;
+  className?: string;
+}) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
   const intro = item.intro[lang];
 
   return (
-    <li className="space-y-5">
+    <li className={`space-y-5${className ? ` ${className}` : ""}`}>
       <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -66,18 +72,24 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   );
 }
 
-function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
+function PressLinkItemComponent({
+  item,
+  className,
+}: {
+  item: PressLinkItem;
+  className?: string;
+}) {
   const { lang } = useLanguage();
 
   return (
-    <li className="space-y-5">
+    <li className={`space-y-5${className ? ` ${className}` : ""}`}>
       <Image
         src={item.image}
         alt={item.alt[lang]}
-        className="block h-auto w-full"
+        className="block h-auto w-full max-w-[75ch]"
         width={item.width}
         height={item.height}
-        sizes="100vw"
+        sizes="(max-width: 48rem) 75ch, 48rem"
       />
       <div className="max-w-[75ch] space-y-0">
         <p>
@@ -93,9 +105,15 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   );
 }
 
-export function PressItem({ item }: { item: PressItemData }) {
+export function PressItem({
+  item,
+  className,
+}: {
+  item: PressItemData;
+  className?: string;
+}) {
   if (item.type === "link") {
-    return <PressLinkItemComponent item={item} />;
+    return <PressLinkItemComponent item={item} className={className} />;
   }
-  return <PressQuoteItem item={item} />;
+  return <PressQuoteItem item={item} className={className} />;
 }
