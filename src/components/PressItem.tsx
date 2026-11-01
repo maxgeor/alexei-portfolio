@@ -55,9 +55,9 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
 
   return (
     <li>
-      <PressDivider />
-      <div className="site-shell pt-[4px]">
-        <div className={pressItemContentClassName}>
+      <div className="site-shell">
+        <PressDivider />
+        <div className={`${pressItemContentClassName} pt-[4px]`}>
           <p className="max-w-[75ch]">
             {intro.before}
             <em>{intro.emphasis}</em>
@@ -101,13 +101,13 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
 
   return (
     <li>
-      <PressDivider />
-      <div className="site-shell pt-[8px]">
+      <div className="site-shell">
+        <PressDivider />
         <a
+          className="press-link group flex max-w-[75ch] cursor-pointer flex-col gap-[7px] pt-[8px] no-underline"
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="press-link group flex max-w-[75ch] cursor-pointer flex-col gap-[7px] no-underline"
         >
           <div className="max-w-[33ch] leading-[0]">
             <Image
