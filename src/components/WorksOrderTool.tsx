@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 import { recentWorks, type Work } from "@/data/content";
 
+const DRAG_INDEX_MIME = "application/x-work-index";
+
 function reorderWorks(works: Work[], fromIndex: number, toIndex: number) {
   if (fromIndex === toIndex) {
     return works;
@@ -19,6 +21,17 @@ function formatOrderList(works: readonly Work[]) {
   return works.map((work, index) => `${index + 1}. ${work.title}, ${work.year}`).join("\n");
 }
 
+function readDragIndex(event: React.DragEvent) {
+  const raw =
+    event.dataTransfer.getData(DRAG_INDEX_MIME) ||
+    event.dataTransfer.getData("text/plain");
+  if (raw === "") {
+    return null;
+  }
+  const index = Number.parseInt(raw, 10);
+  return Number.isNaN(index) ? null : index;
+}
+
 export function WorksOrderTool() {
   const [works, setWorks] = useState<Work[]>(() => [...recentWorks]);
   const [dragIndex, setDragIndex] = useState<number | null>(null);
@@ -26,15 +39,41 @@ export function WorksOrderTool() {
 
   const orderList = useMemo(() => formatOrderList(works), [works]);
 
-  const onDrop = useCallback((toIndex: number) => {
-    setWorks((current) => {
-      if (dragIndex === null) {
-        return current;
+  const moveWork = useCallback((fromIndex: number, toIndex: number) => {
+    setWorks((current) => reorderWorks(current, fromIndex, toIndex));
+  }, []);
+
+  const handleDragStart = useCallback(
+    (index: number, event: React.DragEvent<HTMLButtonElement>) => {
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData(DRAG_INDEX_MIME, String(index));
+      event.dataTransfer.setData("text/plain", String(index));
+      setDragIndex(index);
+    },
+    [],
+  );
+
+  const handleDragOver = useCallback((event: React.DragEvent<HTMLLIElement>) => {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "move";
+  }, []);
+
+  const handleDrop = useCallback(
+    (toIndex: number, event: React.DragEvent<HTMLLIElement>) => {
+      event.preventDefault();
+      const fromIndex = readDragIndex(event);
+      if (fromIndex === null) {
+        return;
       }
-      return reorderWorks(current, dragIndex, toIndex);
-    });
+      moveWork(fromIndex, toIndex);
+      setDragIndex(null);
+    },
+    [moveWork],
+  );
+
+  const handleDragEnd = useCallback(() => {
     setDragIndex(null);
-  }, [dragIndex]);
+  }, []);
 
   const resetOrder = useCallback(() => {
     setWorks([...recentWorks]);
@@ -64,8 +103,8 @@ export function WorksOrderTool() {
             Works order (draft)
           </h1>
           <p className="m-0">
-            Drag paintings to rearrange. Copy the list below and send it to update
-            the live gallery order.
+            Drag by the handle (⋮⋮) or use the arrows to rearrange. Copy the list
+            below and send it to update the live gallery order.
           </p>
         </div>
       </div>
@@ -74,15 +113,24 @@ export function WorksOrderTool() {
         {works.map((work, index) => (
           <li
             key={work.image}
-            draggable
-            onDragStart={() => setDragIndex(index)}
-            onDragEnd={() => setDragIndex(null)}
-            onDragOver={(event) => event.preventDefault()}
-            onDrop={() => onDrop(index)}
-            className={`flex cursor-grab gap-3 border border-black/15 p-2 active:cursor-grabbing ${
-              dragIndex === index ? "opacity-40" : ""
+            onDragOver={handleDragOver}
+            onDrop={(event) => handleDrop(index, event)}
+            className={`flex items-center gap-3 border border-black/15 p-2 ${
+              dragIndex === index ? "bg-black/[0.03]" : ""
             }`}
           >
+            <button
+              type="button"
+              draggable
+              aria-label={`Drag ${work.title} to reorder`}
+              onDragStart={(event) => handleDragStart(index, event)}
+              onDragEnd={handleDragEnd}
+              className="flex w-[2ch] shrink-0 cursor-grab flex-col items-center justify-center border-0 bg-transparent p-0 text-[10px] leading-[3px] text-ink active:cursor-grabbing"
+            >
+              <span aria-hidden>⋮</span>
+              <span aria-hidden>⋮</span>
+              <span aria-hidden>⋮</span>
+            </button>
             <p className="m-0 w-[2ch] shrink-0 tabular-nums">{index + 1}.</p>
             <div className="w-[72px] shrink-0 leading-[0]">
               <Image
@@ -91,14 +139,35 @@ export function WorksOrderTool() {
                 width={work.width}
                 height={work.height}
                 sizes="72px"
-                className="block h-auto w-full"
+                draggable={false}
+                className="pointer-events-none block h-auto w-full select-none"
               />
             </div>
-            <div className="min-w-0 space-y-0">
+            <div className="min-w-0 flex-1 space-y-0">
               <p className="m-0">
                 {work.title}, {work.year}
               </p>
               <p className="m-0 text-black/60">{work.material.en}</p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-1">
+              <button
+                type="button"
+                aria-label={`Move ${work.title} up`}
+                disabled={index === 0}
+                onClick={() => moveWork(index, index - 1)}
+                className="cursor-pointer border border-black/15 bg-transparent px-2 py-0 text-ink disabled:cursor-not-allowed disabled:opacity-30"
+              >
+                ↑
+              </button>
+              <button
+                type="button"
+                aria-label={`Move ${work.title} down`}
+                disabled={index === works.length - 1}
+                onClick={() => moveWork(index, index + 1)}
+                className="cursor-pointer border border-black/15 bg-transparent px-2 py-0 text-ink disabled:cursor-not-allowed disabled:opacity-30"
+              >
+                ↓
+              </button>
             </div>
           </li>
         ))}
