@@ -87,9 +87,10 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="!underline underline-offset-[2px] decoration-solid"
+            className="no-underline hover:no-underline"
           >
             {item.title[lang]}
+            <span aria-hidden> ↑</span>
           </a>
         </p>
         <p>
