@@ -83,9 +83,6 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
       />
       <div className="max-w-[75ch] space-y-0">
         <p>
-          {item.publication} | {item.author}
-        </p>
-        <p>
           <a
             href={item.url}
             target="_blank"
@@ -94,6 +91,9 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           >
             {item.title[lang]}
           </a>
+        </p>
+        <p>
+          {item.publication},{item.author}
         </p>
       </div>
     </li>
