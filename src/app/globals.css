@@ -41,6 +41,18 @@ a:hover {
   text-decoration: underline;
 }
 
+a.press-link:hover {
+  text-decoration: none;
+}
+
+a.press-link:hover .press-link__title {
+  text-decoration: underline;
+}
+
+a.press-link:hover .press-link__meta {
+  text-decoration: none;
+}
+
 ::selection {
   background: #d4d4d4;
   color: #000;
