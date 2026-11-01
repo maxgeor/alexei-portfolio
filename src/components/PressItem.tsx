@@ -8,8 +8,11 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
-const pressItemClassName =
-  "max-w-[75ch] space-y-5 border-t border-black pt-[4px]";
+const pressItemSharedClassName =
+  "max-w-[75ch] space-y-5 border-t border-black";
+
+const pressQuoteItemClassName = `${pressItemSharedClassName} pt-[4px]`;
+const pressLinkItemClassName = `${pressItemSharedClassName} pt-[8px]`;
 
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
@@ -17,7 +20,7 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const intro = item.intro[lang];
 
   return (
-    <li className={pressItemClassName}>
+    <li className={pressQuoteItemClassName}>
       <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -76,7 +79,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className={pressItemClassName}>
+    <li className={pressLinkItemClassName}>
       <a
         href={item.url}
         target="_blank"
