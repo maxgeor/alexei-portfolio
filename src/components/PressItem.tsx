@@ -8,16 +8,25 @@ import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "
 
 type QuoteLang = "en" | "fr";
 
-const pressItemClassName =
-  "max-w-[75ch] space-y-5 border-t border-black pt-[8px]";
+function pressItemClassName(isFirst: boolean) {
+  return `max-w-[75ch] space-y-5 border-t border-black ${
+    isFirst ? "pt-[28px]" : "pt-[4px]"
+  }`;
+}
 
-function PressQuoteItem({ item }: { item: PressQuoteItem }) {
+function PressQuoteItem({
+  item,
+  isFirst,
+}: {
+  item: PressQuoteItem;
+  isFirst: boolean;
+}) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
   const intro = item.intro[lang];
 
   return (
-    <li className={pressItemClassName}>
+    <li className={pressItemClassName(isFirst)}>
       <p className="max-w-[75ch]">
         {intro.before}
         <em>{intro.emphasis}</em>
@@ -72,11 +81,17 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   );
 }
 
-function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
+function PressLinkItemComponent({
+  item,
+  isFirst,
+}: {
+  item: PressLinkItem;
+  isFirst: boolean;
+}) {
   const { lang } = useLanguage();
 
   return (
-    <li className={pressItemClassName}>
+    <li className={pressItemClassName(isFirst)}>
       <a
         href={item.url}
         target="_blank"
@@ -111,9 +126,15 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   );
 }
 
-export function PressItem({ item }: { item: PressItemData }) {
+export function PressItem({
+  item,
+  isFirst = false,
+}: {
+  item: PressItemData;
+  isFirst?: boolean;
+}) {
   if (item.type === "link") {
-    return <PressLinkItemComponent item={item} />;
+    return <PressLinkItemComponent item={item} isFirst={isFirst} />;
   }
-  return <PressQuoteItem item={item} />;
+  return <PressQuoteItem item={item} isFirst={isFirst} />;
 }
