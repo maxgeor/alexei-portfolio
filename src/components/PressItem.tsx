@@ -101,12 +101,12 @@ function PressLinkItemComponent({
       <Image
         src={item.image}
         alt={item.alt[lang]}
-        className="block h-auto w-full max-w-[75ch]"
+        className="block h-auto w-full max-w-[33ch]"
         width={item.width}
         height={item.height}
-        sizes="(max-width: 48rem) 75ch, 48rem"
+        sizes="33ch"
       />
-      <div className="max-w-[75ch] space-y-0">
+      <div className="max-w-[33ch] space-y-0">
         <p>
           {item.publication} | {item.author}
         </p>
@@ -115,7 +115,7 @@ function PressLinkItemComponent({
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline"
+            className="!underline underline-offset-[2px] decoration-solid"
           >
             {item.title[lang]}
           </a>
