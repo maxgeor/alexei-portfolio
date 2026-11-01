@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import { PressItem } from "@/components/PressItem";
 import { pressItems } from "@/data/content";
@@ -26,14 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-function PressDivider() {
-  return (
-    <li className="max-w-[75ch] list-none" aria-hidden>
-      <div className="h-[0.5px] bg-black" />
-    </li>
-  );
-}
-
 export default function PressPage() {
   return (
     <main className="site-shell space-y-5 pb-[20px] text-pretty">
@@ -42,14 +33,8 @@ export default function PressPage() {
       <ul className="m-0 flex list-none flex-col gap-6 p-0">
         {pressItems.map((item) => {
           const key = item.type === "link" ? item.url : item.quoteEn;
-          return (
-            <Fragment key={key}>
-              <PressDivider />
-              <PressItem item={item} />
-            </Fragment>
-          );
+          return <PressItem key={key} item={item} />;
         })}
-        <PressDivider />
       </ul>
     </main>
   );
