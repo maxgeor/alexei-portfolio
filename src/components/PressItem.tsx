@@ -90,7 +90,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             className="no-underline hover:no-underline"
           >
             {item.title[lang]}
-            <span aria-hidden> ↑</span>
+            <span aria-hidden> ↗</span>
           </a>
         </p>
         <p>
