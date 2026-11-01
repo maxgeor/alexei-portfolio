@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import { PressItem } from "@/components/PressItem";
 import { pressItems } from "@/data/content";
@@ -32,18 +31,9 @@ export default function PressPage() {
       <JsonLd data={pressJsonLd()} />
       <h1 className="sr-only">{title}</h1>
       <ul className="m-0 flex list-none flex-col gap-6 p-0">
-        {pressItems.map((item, index) => {
+        {pressItems.map((item) => {
           const key = item.type === "link" ? item.url : item.quoteEn;
-          return (
-            <Fragment key={key}>
-              {index > 0 ? (
-                <li className="max-w-[75ch] list-none" aria-hidden>
-                  —
-                </li>
-              ) : null}
-              <PressItem item={item} />
-            </Fragment>
-          );
+          return <PressItem key={key} item={item} />;
         })}
       </ul>
     </main>
