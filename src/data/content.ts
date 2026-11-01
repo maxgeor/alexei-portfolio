@@ -228,8 +228,34 @@ export const exhibition = {
   },
 } as const;
 
-export const pressItems = [
+export type PressQuoteItem = {
+  type: "quote";
+  intro: {
+    en: { before: string; emphasis: string; after: string };
+    fr: { before: string; emphasis: string; after: string };
+  };
+  quoteEn: string;
+  quoteFr: string;
+};
+
+export type PressLinkItem = {
+  type: "link";
+  image: string;
+  width: number;
+  height: number;
+  alt: LocalizedString;
+  publication: string;
+  author: string;
+  title: LocalizedString;
+  url: string;
+  datePublished: string;
+};
+
+export type PressItem = PressQuoteItem | PressLinkItem;
+
+export const pressItems: PressItem[] = [
   {
+    type: "quote",
     intro: {
       en: {
         before: "Excerpt from the accompanying text for ",
@@ -250,29 +276,22 @@ export const pressItems = [
       "Chez Alexei Kolakis-Landon, la peinture se construit autour d’une compréhension matérielle et processuelle du médium. Le sujet de l’œuvre n’est pas la représentation, mais la peinture elle-même : ses coulures, sa densité, ses effacements, son rapport direct au corps et au temps. Nourrie par une approche intuitive et presque cérémonielle de l’acte de peindre, sa pratique oscille entre spontanéité du geste, suspension visuelle et tension psychologique. Les surfaces deviennent ainsi les traces d’un processus dans lequel la matière agit comme prolongement de l’expérience humaine, tandis que des tonalités organiques proches de la chair ou du sang participent à une mise en tension du corps et de la matière picturale.",
   },
   {
-    intro: {
-      en: {
-        before: "Excerpt from ",
-        emphasis: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
-        after:
-          " by Ryan Alexander Diduck for Niche MTL (October 11, 2026):",
-      },
-      fr: {
-        before: "Extrait de ",
-        emphasis:
-          "There Will Be Blood : entretien avec Alexei Kolakis-Landon",
-        after:
-          " par Ryan Alexander Diduck pour Niche MTL (11 octobre 2026) :",
-      },
+    type: "link",
+    image: "/press/niche-there-will-be-blood.jpg",
+    width: 1200,
+    height: 1200,
+    alt: {
+      en: "Studio view — Alexei Kolakis-Landon, photographed for Niche MTL",
+      fr: "Vue d'atelier — Alexei Kolakis-Landon, photographié pour Niche MTL",
     },
-    quoteEn:
-      "Making art is me processing my lived experience. It's my life. It's the most meditative and the most important aspect of my life. It's like drinking or breathing. It's just something I have to do. Painting is the one thing that brings me back to reality. It makes me feel like everything is going to be okay.",
-    quoteFr:
-      "Faire de l’art, c’est traiter mon vécu. C’est ma vie. C’est l’aspect le plus méditatif et le plus important de ma vie. C’est comme boire ou respirer. C’est quelque chose que je dois faire. La peinture est ce qui me ramène à la réalité. Elle me fait sentir que tout ira bien.",
-    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
+    publication: "Niche MTL",
     author: "Ryan Alexander Diduck",
+    title: {
+      en: "There Will Be Blood: in conversation with Alexei Kolakis-Landon",
+      fr: "There Will Be Blood : entretien avec Alexei Kolakis-Landon",
+    },
+    url: "https://nichemtl.com/2026/10/11/there-will-be-blood-in-conversation-with-alexei-kolakis-landon/",
     datePublished: "2026-10-11",
-    publisher: "Niche MTL",
   },
 ];
 

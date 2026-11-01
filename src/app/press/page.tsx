@@ -33,7 +33,7 @@ export default function PressPage() {
       <ul className="space-y-5">
         {pressItems.map((item) => (
           <PressItem
-            key={"url" in item && item.url ? item.url : item.quoteEn}
+            key={item.type === "link" ? item.url : item.quoteEn}
             item={item}
           />
         ))}

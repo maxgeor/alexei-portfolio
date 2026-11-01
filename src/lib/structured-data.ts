@@ -139,11 +139,13 @@ export function exhibitionJsonLd() {
 }
 
 export function pressJsonLd() {
-  const ceremony = pressItems[0];
-  const niche = pressItems[1];
+  const ceremony = pressItems.find((item) => item.type === "quote");
+  const niche = pressItems.find((item) => item.type === "link");
 
-  return [
-    {
+  const graph: Record<string, unknown>[] = [];
+
+  if (ceremony && ceremony.type === "quote") {
+    graph.push({
       "@context": "https://schema.org",
       "@type": "Article",
       headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
@@ -155,25 +157,30 @@ export function pressJsonLd() {
       description: `${ceremony.intro.en.before}${ceremony.intro.en.emphasis}${ceremony.intro.en.after}`,
       text: ceremony.quoteEn,
       inLanguage: "en",
-    },
-    {
+    });
+  }
+
+  if (niche && niche.type === "link") {
+    graph.push({
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: niche.intro.en.emphasis,
+      headline: niche.title.en,
       url: niche.url,
       datePublished: niche.datePublished,
+      image: absoluteUrl(niche.image),
       author: {
         "@type": "Person",
         name: niche.author,
       },
       publisher: {
         "@type": "Organization",
-        name: niche.publisher,
+        name: niche.publication,
       },
       about: { "@id": absoluteUrl("/#person") },
-      description: `${niche.intro.en.before}${niche.intro.en.emphasis}${niche.intro.en.after}`,
-      text: niche.quoteEn,
+      description: `${niche.publication} — ${niche.title.en}`,
       inLanguage: "en",
-    },
-  ];
+    });
+  }
+
+  return graph;
 }

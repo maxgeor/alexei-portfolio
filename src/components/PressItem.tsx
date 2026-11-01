@@ -1,13 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
-import type { pressItems } from "@/data/content";
+import type { PressItem as PressItemData, PressLinkItem, PressQuoteItem } from "@/data/content";
 
-type PressItemData = (typeof pressItems)[number];
 type QuoteLang = "en" | "fr";
 
-export function PressItem({ item }: { item: PressItemData }) {
+function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
   const [quoteLang, setQuoteLang] = useState<QuoteLang>("fr");
   const intro = item.intro[lang];
@@ -16,13 +16,7 @@ export function PressItem({ item }: { item: PressItemData }) {
     <li className="space-y-5">
       <p className="max-w-[75ch]">
         {intro.before}
-        {"url" in item && item.url ? (
-          <a href={item.url} target="_blank" rel="noopener noreferrer">
-            <em>{intro.emphasis}</em>
-          </a>
-        ) : (
-          <em>{intro.emphasis}</em>
-        )}
+        <em>{intro.emphasis}</em>
         {intro.after}
       </p>
       <div className="flex flex-col gap-5">
@@ -70,4 +64,38 @@ export function PressItem({ item }: { item: PressItemData }) {
       </div>
     </li>
   );
+}
+
+function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
+  const { lang } = useLanguage();
+
+  return (
+    <li className="space-y-5">
+      <Image
+        src={item.image}
+        alt={item.alt[lang]}
+        className="block h-auto w-full"
+        width={item.width}
+        height={item.height}
+        sizes="100vw"
+      />
+      <div className="max-w-[75ch] space-y-0">
+        <p>
+          {item.publication} | {item.author}
+        </p>
+        <p>
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            {item.title[lang]}
+          </a>
+        </p>
+      </div>
+    </li>
+  );
+}
+
+export function PressItem({ item }: { item: PressItemData }) {
+  if (item.type === "link") {
+    return <PressLinkItemComponent item={item} />;
+  }
+  return <PressQuoteItem item={item} />;
 }
