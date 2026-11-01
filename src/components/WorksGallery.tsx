@@ -304,7 +304,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
                 width={work.width}
                 height={work.height}
                 sizes="100vw"
-                preload={index < 3}
+                preload={index < 2}
               />
             </button>
             <ImageCaption
