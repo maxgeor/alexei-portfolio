@@ -68,7 +68,7 @@ export const recentWorks: Work[] = [
   {
     image: "/works/untitled-magenta-2026.jpg",
     width: 1024,
-    height: 771,
+    height: 772,
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -78,7 +78,7 @@ export const recentWorks: Work[] = [
   {
     image: "/works/untitled-umber-paper-2026.jpg",
     width: 1024,
-    height: 821,
+    height: 822,
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -88,7 +88,7 @@ export const recentWorks: Work[] = [
   {
     image: "/works/untitled-plum-grid-2026.jpg",
     width: 1024,
-    height: 813,
+    height: 814,
     alt: "Untitled, 2026 — acrylic on grid paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
