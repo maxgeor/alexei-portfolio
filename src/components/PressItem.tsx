@@ -88,11 +88,11 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="no-underline hover:no-underline"
+            className="inline-flex max-w-full items-center gap-0.5 no-underline hover:no-underline"
           >
             {item.title[lang]}
             <ArrowTopRightIcon
-              className="ml-0.5 inline-block size-[1em] shrink-0 align-[-0.05em]"
+              className="size-[calc(1em-2px)] shrink-0 [&>path]:stroke-current [&>path]:[paint-order:stroke_fill] [&>path]:stroke-[1px]"
               aria-hidden
             />
           </a>
