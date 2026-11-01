@@ -47,7 +47,7 @@ function ImageCaption({
   size: string;
 }) {
   return (
-    <div className="space-y-0">
+    <div className="mb-px space-y-0">
       <p className="m-0">{year ? `${title}, ${year}` : title}</p>
       <p className="m-0">{material}</p>
       <p className="m-0">{size}</p>
