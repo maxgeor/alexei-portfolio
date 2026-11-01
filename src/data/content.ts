@@ -67,8 +67,8 @@ const materialAcrylicGridPaper = {
 export const recentWorks: Work[] = [
   {
     image: "/works/untitled-magenta-2026.jpg",
-    width: 2400,
-    height: 1810,
+    width: 2048,
+    height: 1544,
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -77,8 +77,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/untitled-umber-paper-2026.jpg",
-    width: 2400,
-    height: 1926,
+    width: 2048,
+    height: 1644,
     alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
@@ -87,8 +87,8 @@ export const recentWorks: Work[] = [
   },
   {
     image: "/works/untitled-plum-grid-2026.jpg",
-    width: 2400,
-    height: 1907,
+    width: 2048,
+    height: 1628,
     alt: "Untitled, 2026 — acrylic on grid paper by Alexei Kolakis-Landon",
     title: "Untitled",
     year: "2026",
