@@ -31,11 +31,9 @@ export default function PressPage() {
       <JsonLd data={pressJsonLd()} />
       <h1 className="sr-only">{title}</h1>
       <ul className="m-0 flex list-none flex-col gap-6 p-0">
-        {pressItems.map((item, index) => {
+        {pressItems.map((item) => {
           const key = item.type === "link" ? item.url : item.quoteEn;
-          return (
-            <PressItem key={key} item={item} isFirst={index === 0} />
-          );
+          return <PressItem key={key} item={item} />;
         })}
       </ul>
     </main>
