@@ -26,7 +26,7 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
         <blockquote className="m-0 border-0 p-0">
           <p
             lang="fr"
-            className={`max-w-[75ch] indent-[-0.25em] ${
+            className={`max-w-[75ch] pl-[0.5em] indent-[-0.5em] ${
               quoteLang === "fr" ? "" : "hidden"
             }`}
             hidden={quoteLang !== "fr"}
@@ -35,7 +35,7 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
           </p>
           <p
             lang="en"
-            className={`max-w-[75ch] indent-[-0.25em] ${
+            className={`max-w-[75ch] pl-[0.5em] indent-[-0.5em] ${
               quoteLang === "en" ? "" : "hidden"
             }`}
             hidden={quoteLang !== "en"}
