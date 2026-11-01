@@ -1,6 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
+import {
+  CONTENT_COLUMN_SIZES,
+  IMAGE_QUALITY_DESKTOP,
+  IMAGE_QUALITY_MOBILE,
+  LIGHTBOX_SIZES,
+} from "@/lib/image-presets";
 import {
   useCallback,
   useEffect,
@@ -16,9 +23,6 @@ import { ui } from "@/data/content";
 const COARSE_POINTER_QUERY = "(hover: none) and (pointer: coarse)";
 const SWIPE_THRESHOLD = 50;
 const SWIPE_AXIS_LOCK = 10;
-const GALLERY_IMAGE_SIZES = "(max-width: 48rem) 100vw, 48rem";
-const LIGHTBOX_IMAGE_SIZES = "100vw";
-
 function lightboxImageFor(work: Work) {
   return work.lightbox ?? work;
 }
@@ -243,7 +247,8 @@ function Lightbox({
           className="pointer-events-none relative z-0 max-h-full max-w-full object-contain"
           width={lightboxImage.width}
           height={lightboxImage.height}
-          sizes={LIGHTBOX_IMAGE_SIZES}
+          sizes={LIGHTBOX_SIZES}
+          quality={IMAGE_QUALITY_DESKTOP}
         />
 
         <button
@@ -305,14 +310,24 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
               className="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left leading-[0]"
               aria-label={`View ${work.title} fullscreen`}
             >
-              <Image
-                src={work.image}
+              <ResponsivePicture
                 alt={work.alt}
                 className="block h-auto w-full"
-                width={work.width}
-                height={work.height}
-                sizes={GALLERY_IMAGE_SIZES}
                 preload={index === 0}
+                mobile={{
+                  src: work.image,
+                  width: work.width,
+                  height: work.height,
+                  quality: IMAGE_QUALITY_MOBILE,
+                  sizes: CONTENT_COLUMN_SIZES,
+                }}
+                desktop={{
+                  src: work.lightbox?.image ?? work.image,
+                  width: work.lightbox?.width ?? work.width,
+                  height: work.lightbox?.height ?? work.height,
+                  quality: IMAGE_QUALITY_DESKTOP,
+                  sizes: CONTENT_COLUMN_SIZES,
+                }}
               />
             </button>
             <ImageCaption

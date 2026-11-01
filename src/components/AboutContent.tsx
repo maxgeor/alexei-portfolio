@@ -1,8 +1,13 @@
 "use client";
 
-import Image from "next/image";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
 import { aboutCopy, aboutImage } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import {
+  CONTENT_COLUMN_SIZES,
+  IMAGE_QUALITY_DESKTOP,
+  IMAGE_QUALITY_MOBILE,
+} from "@/lib/image-presets";
 
 export function AboutContent() {
   const { lang } = useLanguage();
@@ -30,14 +35,24 @@ export function AboutContent() {
         </div>
       </div>
 
-      <Image
-        src={aboutImage.image}
+      <ResponsivePicture
         alt={aboutImage.alt[lang]}
         className="block h-auto w-full pt-[4px]"
-        width={aboutImage.width}
-        height={aboutImage.height}
-        sizes="100vw"
         preload
+        mobile={{
+          src: aboutImage.image,
+          width: aboutImage.width,
+          height: aboutImage.height,
+          quality: IMAGE_QUALITY_MOBILE,
+          sizes: CONTENT_COLUMN_SIZES,
+        }}
+        desktop={{
+          src: aboutImage.image,
+          width: aboutImage.width,
+          height: aboutImage.height,
+          quality: IMAGE_QUALITY_DESKTOP,
+          sizes: CONTENT_COLUMN_SIZES,
+        }}
       />
     </>
   );

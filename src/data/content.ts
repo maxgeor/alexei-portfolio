@@ -38,9 +38,16 @@ export const ui = {
 } as const;
 
 export const homeImage = {
-  image: "/home/hero.jpg",
-  width: 1400,
-  height: 1867,
+  mobile: {
+    image: "/home/hero.jpg",
+    width: 1400,
+    height: 1867,
+  },
+  desktop: {
+    image: "/works/IMG_2321.jpg",
+    width: 3024,
+    height: 4032,
+  },
   alt: {
     en: "Studio view with chair — Alexei Kolakis-Landon, Montreal painter",
     fr: "Vue d'atelier avec chaise — Alexei Kolakis-Landon, peintre montréalais",
@@ -336,22 +343,32 @@ export const pressItems: PressItem[] = [
     type: "quote",
     intro: {
       en: {
-        before: "Excerpt from the accompanying text for ",
+        before: "From the accompanying text for ",
         emphasis: "Ceremony",
         after:
           ", a duo exhibition with Tomas Dessureault, by Thomas Antoine-Girard:",
       },
       fr: {
-        before: "Extrait du texte d'accompagnement de ",
+        before: "Texte d'accompagnement de ",
         emphasis: "Ceremony",
         after:
           ", une exposition duo avec Tomas Dessureault, par Thomas Antoine-Girard:",
       },
     },
-    quoteEn:
-      "In Alexei Kolakis-Landon’s work, painting is built around a material and process-based understanding of the medium. The subject of the work is not representation, but painting itself: its drips, its density, its erasures, its direct relationship to the body and to time. Nourished by an intuitive and almost ceremonial approach to the act of painting, his practice moves between the spontaneity of gesture, visual suspension, and psychological tension. Surfaces become traces of a process in which matter acts as an extension of human experience, while organic tones close to flesh or blood take part in a tension between the body and pictorial matter.",
-    quoteFr:
-      "Chez Alexei Kolakis-Landon, la peinture se construit autour d’une compréhension matérielle et processuelle du médium. Le sujet de l’œuvre n’est pas la représentation, mais la peinture elle-même : ses coulures, sa densité, ses effacements, son rapport direct au corps et au temps. Nourrie par une approche intuitive et presque cérémonielle de l’acte de peindre, sa pratique oscille entre spontanéité du geste, suspension visuelle et tension psychologique. Les surfaces deviennent ainsi les traces d’un processus dans lequel la matière agit comme prolongement de l’expérience humaine, tandis que des tonalités organiques proches de la chair ou du sang participent à une mise en tension du corps et de la matière picturale.",
+    quoteEn: `Ceremony presents recent work by the Montreal painters Alexei Kolakis-Landon and Tomas Dessureault, who have chosen abstraction as a means of expression, inquiry, and sensory experience. Despite the singularity of their respective practices, both artists view painting as a deeply physical and existential space, where gesture, matter, and colour become vectors of an intensity that cannot be reduced to the image alone—one that carries a lived aesthetic experience.
+
+In Alexei Kolakis-Landon’s work, painting is built around a material and process-based understanding of the medium. The subject of the work is not representation, but painting itself: its drips, its density, its erasures, its direct relationship to the body and to time. Nourished by an intuitive and almost ceremonial approach to the act of painting, his practice moves between the spontaneity of gesture, visual suspension, and psychological tension. Surfaces become traces of a process in which matter acts as an extension of human experience, while organic tones close to flesh or blood take part in a tension between the body and pictorial matter.
+
+Tomas Dessureault’s practice, for its part, takes shape in an existential relationship to creation, understood as a vital necessity as much as a territory of freedom. Through large abstract fields, visceral colours, and compositions crossed by a constant tension between control and abandon, he seeks to translate psychic, emotional, and symbolic states linked to the contemporary human condition. A conscious heir to the Quebec automatists and certain traditions of Canadian modernist landscape, his work reactivates these influences in a sensibility marked by inner crises, perceptual fragmentation, and the search for a radical authenticity.
+
+Brought together under the title Ceremony, the body of work approaches painting as a contemporary form of ritual—a space where gesture, matter, and consciousness still participate in an embodied aesthetic experience. The exhibition is concerned with what painting makes possible today: slowing the gaze, producing a presence, and reintroducing a physical and sensory relationship to the image in a world saturated with visual flows. If artistic modernity displaced the traditional forms of the sacred, it never entirely abandoned ceremony; it transformed it into aesthetic experience, performative gesture, and a site of collective projection. Between interiority, sensitive consciousness, and the materiality of gesture, Ceremony thus offers a reflection on the persistence of ritual in contemporary art and on painting’s capacity to remain a site of direct human experience.`,
+    quoteFr: `Ceremony présente les œuvres récentes des peintres montréalais Alexei Kolakis-Landon et Tomas Dessureault, qui ont choisi l’abstraction comme moyen d’expression, de recherche et d’expérience sensible. Malgré la singularité de leurs pratiques respectives, les deux artistes envisagent la peinture comme un espace profondément physique et existentiel, où le geste, la matière et la couleur deviennent les vecteurs d’une intensité irréductible à l’image seule, porteuse d’une expérience esthétique vécue.
+
+Chez Alexei Kolakis-Landon, la peinture se construit autour d’une compréhension matérielle et processuelle du médium. Le sujet de l’œuvre n’est pas la représentation, mais la peinture elle-même : ses coulures, sa densité, ses effacements, son rapport direct au corps et au temps. Nourrie par une approche intuitive et presque cérémonielle de l’acte de peindre, sa pratique oscille entre spontanéité du geste, suspension visuelle et tension psychologique. Les surfaces deviennent ainsi les traces d’un processus dans lequel la matière agit comme prolongement de l’expérience humaine, tandis que des tonalités organiques proches de la chair ou du sang participent à une mise en tension du corps et de la matière picturale.
+
+La pratique de Tomas Dessureault prend quant à elle forme dans une relation existentielle à la création, envisagée comme nécessité vitale autant que comme territoire de liberté. À travers de grands champs abstraits, des couleurs viscérales et des compositions traversées par une tension constante entre contrôle et abandon, il cherche à traduire des états psychiques, émotionnels et symboliques liés à la condition humaine contemporaine. Héritier conscient des automatistes québécois et de certaines traditions du paysage moderniste canadien, son travail réactive ces influences dans une sensibilité marquée par les crises intérieures, la fragmentation perceptive et la recherche d’une authenticité radicale.
+
+Réunies sous le titre Ceremony, le corpus d’œuvres aborde la peinture comme une forme contemporaine de rituel — un espace où geste, matière et conscience participent encore d’une expérience esthétique incarnée. L’exposition s’intéresse à ce que la peinture permet aujourd’hui : ralentir le regard, produire une présence et réintroduire une relation physique et sensible à l’image dans un monde saturé de flux visuels. Si la modernité artistique a déplacé les formes traditionnelles du sacré, elle n’a jamais entièrement abandonné la cérémonie ; elle l’a transformée en expérience esthétique, en geste performatif et en lieu de projection collective. Entre intériorité, conscience sensible et matérialité du geste, Ceremony propose ainsi une réflexion sur la persistance du rituel dans l’art contemporain et sur la capacité de la peinture à demeurer un lieu d’expérience humaine directe.`,
   },
 ];
 

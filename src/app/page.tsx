@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/HomeHero";
 import { HomePageLink } from "@/components/HomePageLink";
-import { homeImage } from "@/data/content";
 import { pageDescriptions, siteConfig } from "@/lib/site";
+import { homeHeroPreloadLinks } from "@/lib/home-preload";
 
 const homeTitle = siteConfig.name;
 
@@ -29,12 +29,24 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const heroPreload = homeHeroPreloadLinks();
+
   return (
     <main className="relative flex min-h-0 flex-1 items-center justify-center pb-[20px]">
       <link
         rel="preload"
         as="image"
-        href={homeImage.image}
+        href={heroPreload.mobile.href}
+        imageSrcSet={heroPreload.mobile.srcSet}
+        media="(max-width: 47.99rem)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={heroPreload.desktop.href}
+        imageSrcSet={heroPreload.desktop.srcSet}
+        media="(min-width: 48rem)"
         fetchPriority="high"
       />
       <HomePageLink />
