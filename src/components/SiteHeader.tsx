@@ -9,7 +9,8 @@ import { ui } from "@/data/content";
 const links = [
   { href: "/works", labelKey: "works" },
   { href: "/exhibitions", labelKey: "exhibitionViews" },
-  { href: "/bio", labelKey: "bio" },
+  { href: "/about", labelKey: "about" },
+  { href: "/contact", labelKey: "contact" },
   { href: "/press", labelKey: "press" },
 ] as const;
 

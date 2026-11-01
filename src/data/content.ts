@@ -20,7 +20,8 @@ export const ui = {
   works: { en: "Recent Works", fr: "Œuvres récentes" },
   exhibitionViews: { en: "Exhibition Views", fr: "Vues d'exposition" },
   press: { en: "Press", fr: "Presse" },
-  bio: { en: "Bio", fr: "Bio" },
+  about: { en: "About", fr: "À propos" },
+  contact: { en: "Contact", fr: "Contact" },
   close: { en: "Close", fr: "Fermer" },
   openMenu: { en: "Open menu", fr: "Ouvrir le menu" },
   closeMenu: { en: "Close menu", fr: "Fermer le menu" },
@@ -172,7 +173,7 @@ export const recentWorks: Work[] = [
   },
 ];
 
-export const bioImage = {
+export const aboutImage = {
   image: "/works/IMG_9813.jpg",
   width: 4032,
   height: 3024,
@@ -182,7 +183,7 @@ export const bioImage = {
   },
 } as const;
 
-export const bioCopy = {
+export const aboutCopy = {
   paragraphs: {
     en: [
       "Alexei Kolakis-Landon is a Montreal-based painter, interested in painting as both a physical act and an intimate record of change. His practice is an exploration of the material qualities of paint as a means of reflecting on the body and its states of vulnerability, fragility and transformation. Working intuitively and without predetermined compositions, he embraces chance, accident, and the agency of the material itself, allowing the process of painting to guide each work as it unfolds.",
@@ -195,6 +196,9 @@ export const bioCopy = {
       "Plutôt que d'aboutir à des images figées, ses peintures restent ouvertes et réactives. Les formes émergent et se dissolvent, reflétant la nature fluide de la mémoire et de l'expérience émotionnelle. À travers ce processus continu, la peinture devient à la fois une investigation matérielle et un espace où l'expérience corporelle et psychologique se tient en tension.",
     ],
   },
+} as const;
+
+export const contactCopy = {
   email: "alexei.kolakis@icloud.com",
   instagram: {
     url: "https://www.instagram.com/alexeikolakislandon/",

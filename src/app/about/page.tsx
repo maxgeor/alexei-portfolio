@@ -1,37 +1,37 @@
 import type { Metadata } from "next";
-import { BioContent } from "@/components/BioContent";
+import { AboutContent } from "@/components/AboutContent";
 import { JsonLd } from "@/components/JsonLd";
 import { pageDescriptions, siteConfig } from "@/lib/site";
-import { bioPageJsonLd } from "@/lib/structured-data";
+import { aboutPageJsonLd } from "@/lib/structured-data";
 
-const title = `${siteConfig.name} — Bio`;
+const title = `${siteConfig.name} — About`;
 
 export const metadata: Metadata = {
-  title: "Bio",
-  description: pageDescriptions.bio,
+  title: "About",
+  description: pageDescriptions.about,
   alternates: {
-    canonical: "/bio",
+    canonical: "/about",
   },
   openGraph: {
     title,
-    description: pageDescriptions.bio,
-    url: "/bio",
+    description: pageDescriptions.about,
+    url: "/about",
     type: "profile",
     firstName: siteConfig.givenName,
     lastName: siteConfig.familyName,
   },
   twitter: {
     title,
-    description: pageDescriptions.bio,
+    description: pageDescriptions.about,
   },
 };
 
-export default function BioPage() {
+export default function AboutPage() {
   return (
     <main className="site-shell space-y-5 pb-[20px]">
-      <JsonLd data={bioPageJsonLd()} />
+      <JsonLd data={aboutPageJsonLd()} />
       <h1 className="sr-only">{title}</h1>
-      <BioContent />
+      <AboutContent />
     </main>
   );
 }
