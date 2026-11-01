@@ -54,7 +54,47 @@ const materialCopper = {
   fr: "Acrylique sur cuivre",
 } as const;
 
+const materialAcrylicPaper = {
+  en: "Acrylic on paper",
+  fr: "Acrylique sur papier",
+} as const;
+
+const materialAcrylicGridPaper = {
+  en: "Acrylic on grid paper",
+  fr: "Acrylique sur papier quadrillé",
+} as const;
+
 export const recentWorks: Work[] = [
+  {
+    image: "/works/untitled-magenta-2026.jpg",
+    width: 1024,
+    height: 771,
+    alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
+    title: "Untitled",
+    year: "2026",
+    material: materialAcrylicPaper,
+    size: { en: "48 × 64 inches", fr: "48 × 64 pouces" },
+  },
+  {
+    image: "/works/untitled-umber-paper-2026.jpg",
+    width: 1024,
+    height: 821,
+    alt: "Untitled, 2026 — acrylic on paper by Alexei Kolakis-Landon",
+    title: "Untitled",
+    year: "2026",
+    material: materialAcrylicPaper,
+    size: { en: "11 × 8.5 inches", fr: "11 × 8.5 pouces" },
+  },
+  {
+    image: "/works/untitled-plum-grid-2026.jpg",
+    width: 1024,
+    height: 813,
+    alt: "Untitled, 2026 — acrylic on grid paper by Alexei Kolakis-Landon",
+    title: "Untitled",
+    year: "2026",
+    material: materialAcrylicGridPaper,
+    size: { en: "11 × 8.5 inches", fr: "11 × 8.5 pouces" },
+  },
   {
     image: "/works/01.AKL.png",
     width: 1024,
