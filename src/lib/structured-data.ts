@@ -1,5 +1,5 @@
-import { bioCopy, exhibition, pressItems, recentWorks } from "@/data/content";
-import { absoluteUrl, siteConfig } from "@/lib/site";
+import { aboutCopy, exhibition, pressItems, recentWorks } from "@/data/content";
+import { absoluteUrl, pageDescriptions, siteConfig } from "@/lib/site";
 
 export function personJsonLd() {
   return {
@@ -85,15 +85,27 @@ export function worksItemListJsonLd() {
   };
 }
 
-export function bioPageJsonLd() {
+export function aboutPageJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    name: `${siteConfig.name} — Bio`,
-    url: absoluteUrl("/bio"),
+    name: `${siteConfig.name} — About`,
+    url: absoluteUrl("/about"),
     mainEntity: { "@id": absoluteUrl("/#person") },
     about: { "@id": absoluteUrl("/#person") },
-    description: bioCopy.paragraphs.en[0],
+    description: aboutCopy.paragraphs.en[0],
+  };
+}
+
+export function contactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: `${siteConfig.name} — Contact`,
+    url: absoluteUrl("/contact"),
+    mainEntity: { "@id": absoluteUrl("/#person") },
+    about: { "@id": absoluteUrl("/#person") },
+    description: pageDescriptions.contact,
   };
 }
 

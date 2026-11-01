@@ -21,9 +21,9 @@ export const siteConfig = {
   },
   /** Primary SERP snippet for name searches */
   description:
-    "Alexei Kolakis-Landon is a Montreal-based painter. Official site — recent works, exhibition views, bio, and press.",
+    "Alexei Kolakis-Landon is a Montreal-based painter. Official site — recent works, exhibition views, about, contact, and press.",
   descriptionFr:
-    "Alexei Kolakis-Landon est un peintre montréalais. Site officiel — œuvres récentes, vues d'exposition, bio et presse.",
+    "Alexei Kolakis-Landon est un peintre montréalais. Site officiel — œuvres récentes, vues d'exposition, à propos, contact et presse.",
   keywords: [
     "Alexei Kolakis-Landon",
     "Alexei Kolakis Landon",
@@ -44,7 +44,9 @@ export const pageDescriptions = {
     "Alexei Kolakis-Landon — recent paintings in acrylic, ink, and graphite on canvas and copper.",
   exhibitions:
     "Alexei Kolakis-Landon — exhibition views of Ceremony (2026), duo exhibition with Tomas Dessureault in Montreal, QC.",
-  bio: "Alexei Kolakis-Landon — Montreal painter biography, practice, and contact (email and Instagram).",
+  about: "Alexei Kolakis-Landon — Montreal painter biography and artistic practice.",
+  contact:
+    "Contact Alexei Kolakis-Landon — email and Instagram for inquiries and studio correspondence.",
   press:
     "Alexei Kolakis-Landon — press and critical writing, including text by Thomas Antoine-Girard for Ceremony.",
 } as const;
