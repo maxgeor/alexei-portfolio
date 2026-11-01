@@ -15,8 +15,10 @@ export function HomeHero() {
         className="block h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
         width={homeImage.width}
         height={homeImage.height}
-        sizes="100vw"
+        sizes="(max-width: 48rem) 100vw, 48rem"
         preload
+        unoptimized
+        decoding="sync"
       />
     </>
   );

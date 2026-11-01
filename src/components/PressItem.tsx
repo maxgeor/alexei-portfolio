@@ -89,8 +89,9 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
             className="block h-auto w-full"
             width={item.width}
             height={item.height}
-            sizes="33ch"
-          />
+          sizes="33ch"
+          preload
+        />
         </div>
         <div className="max-w-[75ch] space-y-0 leading-[20px]">
           <p className="m-0">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/HomeHero";
 import { HomePageLink } from "@/components/HomePageLink";
+import { homeImage } from "@/data/content";
 import { pageDescriptions, siteConfig } from "@/lib/site";
 
 const homeTitle = siteConfig.name;
@@ -30,6 +31,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="relative flex min-h-0 flex-1 items-center justify-center pb-[20px]">
+      <link
+        rel="preload"
+        as="image"
+        href={homeImage.image}
+        fetchPriority="high"
+      />
       <HomePageLink />
       <div className="site-shell pointer-events-none relative z-0 w-full">
         <h1 className="sr-only">{siteConfig.name}</h1>
