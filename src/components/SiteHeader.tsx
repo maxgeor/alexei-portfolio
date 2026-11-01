@@ -10,8 +10,8 @@ const links = [
   { href: "/works", labelKey: "works" },
   { href: "/exhibitions", labelKey: "exhibitionViews" },
   { href: "/about", labelKey: "about" },
-  { href: "/contact", labelKey: "contact" },
   { href: "/press", labelKey: "press" },
+  { href: "/contact", labelKey: "contact" },
 ] as const;
 
 function MenuIcon({ open }: { open: boolean }) {
