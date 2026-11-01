@@ -12,7 +12,7 @@ const pressItemSharedClassName =
   "max-w-[75ch] space-y-5 border-t border-black";
 
 const pressQuoteItemClassName = `${pressItemSharedClassName} pt-[4px]`;
-const pressLinkItemClassName = `${pressItemSharedClassName} pt-[8px]`;
+const pressLinkItemClassName = pressItemSharedClassName;
 
 function PressQuoteItem({ item }: { item: PressQuoteItem }) {
   const { lang } = useLanguage();
