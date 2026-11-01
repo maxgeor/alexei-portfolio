@@ -76,14 +76,16 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
 
   return (
     <li className="flex flex-col gap-1.5">
-      <Image
-        src={item.image}
-        alt={item.alt[lang]}
-        className="block h-auto w-full max-w-[33ch]"
-        width={item.width}
-        height={item.height}
-        sizes="33ch"
-      />
+      <div className="max-w-[33ch] leading-[0]">
+        <Image
+          src={item.image}
+          alt={item.alt[lang]}
+          className="block h-auto w-full"
+          width={item.width}
+          height={item.height}
+          sizes="33ch"
+        />
+      </div>
       <div className="max-w-[75ch] space-y-0">
         <p>
           <a
