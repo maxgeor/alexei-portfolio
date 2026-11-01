@@ -75,7 +75,15 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className={pressSectionClassName}>
+    <li className="space-y-0">
+      <Image
+        src={item.image}
+        alt={item.alt[lang]}
+        className="block h-auto w-full max-w-[33ch]"
+        width={item.width}
+        height={item.height}
+        sizes="33ch"
+      />
       <div className="max-w-[75ch] space-y-0">
         <p>
           <a
@@ -95,14 +103,6 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           {item.publication}, {item.author}
         </p>
       </div>
-      <Image
-        src={item.image}
-        alt={item.alt[lang]}
-        className="block h-auto w-full max-w-[33ch]"
-        width={item.width}
-        height={item.height}
-        sizes="33ch"
-      />
     </li>
   );
 }
