@@ -92,7 +92,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           >
             {item.title[lang]}
             <ArrowTopRightIcon
-              className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
+              className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle [&>path]:stroke-current [&>path]:[paint-order:stroke_fill] [&>path]:stroke-[0.35px]"
               aria-hidden
             />
           </a>
