@@ -80,7 +80,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex cursor-pointer flex-col gap-[7px] no-underline hover:!no-underline"
+        className="group flex cursor-pointer flex-col gap-[7px] no-underline hover:!no-underline"
       >
         <div className="mt-1 max-w-[33ch] leading-[0]">
           <Image
@@ -94,7 +94,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
         </div>
         <div className="max-w-[75ch] space-y-0 leading-[20px]">
           <p className="m-0">
-            {item.title[lang]}
+            <span className="group-hover:underline">{item.title[lang]}</span>
             <ArrowTopRightIcon
               className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
               aria-hidden
