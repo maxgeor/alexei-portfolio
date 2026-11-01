@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function PressPage() {
   return (
-    <main className="site-shell space-y-5 pb-[20px]">
+    <main className="site-shell space-y-5 pb-[20px] text-pretty">
       <JsonLd data={pressJsonLd()} />
       <h1 className="sr-only">{title}</h1>
       <ul className="m-0 flex list-none flex-col gap-6 p-0">
