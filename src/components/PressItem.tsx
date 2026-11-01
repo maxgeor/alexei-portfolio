@@ -27,7 +27,10 @@ function QuoteText({
   const visible = quoteLang === lang;
 
   return (
-    <div className={visible ? "space-y-5" : "hidden"} hidden={!visible}>
+    <div
+      className={visible ? "flex flex-col gap-5" : "hidden"}
+      hidden={!visible}
+    >
       {paragraphs.map((paragraph, index) => (
         <p key={index} lang={lang} className="m-0 max-w-[75ch]">
           {index === 0 ? (
