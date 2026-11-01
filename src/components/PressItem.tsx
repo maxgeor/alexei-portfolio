@@ -75,7 +75,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
   const { lang } = useLanguage();
 
   return (
-    <li className="flex flex-col gap-1.5">
+    <li className="flex flex-col gap-1">
       <div className="mt-1 max-w-[33ch] leading-[0]">
         <Image
           src={item.image}
