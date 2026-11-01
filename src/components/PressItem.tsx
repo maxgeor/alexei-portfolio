@@ -84,7 +84,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="press-link group flex cursor-pointer flex-col gap-[7px] no-underline"
+        className="press-link group flex cursor-pointer flex-col gap-[6px] no-underline"
       >
         <div className="max-w-[33ch] leading-[0]">
           <Image
@@ -101,7 +101,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
           <p className="m-0">
             <span className="press-link__title">{item.title[lang]}</span>
             <ArrowTopRightIcon
-              className="ml-0.5 inline-block size-[calc(1em-2px)] align-middle"
+              className="ml-0.5 inline-block size-[calc(1em-2px)] translate-y-[-0.5px] align-middle [paint-order:stroke_fill] [&_path]:stroke-current [&_path]:stroke-[0.25px]"
               aria-hidden
             />
           </p>
