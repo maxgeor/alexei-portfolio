@@ -290,11 +290,11 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
     <>
       <ul className="space-y-5">
         {images.map((work, index) => (
-          <li key={work.image}>
+          <li key={work.image} className="flex flex-col gap-2">
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
-              className="mb-[4px] block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
+              className="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left leading-[0]"
               aria-label={`View ${work.title} fullscreen`}
             >
               <Image
