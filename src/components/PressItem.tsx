@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
