@@ -32,7 +32,10 @@ export default function PressPage() {
       <h1 className="sr-only">{title}</h1>
       <ul className="space-y-5">
         {pressItems.map((item) => (
-          <PressItem key={item.quoteEn} item={item} />
+          <PressItem
+            key={"url" in item && item.url ? item.url : item.quoteEn}
+            item={item}
+          />
         ))}
       </ul>
     </main>

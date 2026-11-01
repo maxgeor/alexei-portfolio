@@ -139,18 +139,41 @@ export function exhibitionJsonLd() {
 }
 
 export function pressJsonLd() {
-  const item = pressItems[0];
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
-    author: {
-      "@type": "Person",
-      name: "Thomas Antoine-Girard",
+  const ceremony = pressItems[0];
+  const niche = pressItems[1];
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${siteConfig.name} — Ceremony accompanying text excerpt`,
+      author: {
+        "@type": "Person",
+        name: "Thomas Antoine-Girard",
+      },
+      about: { "@id": absoluteUrl("/#person") },
+      description: `${ceremony.intro.en.before}${ceremony.intro.en.emphasis}${ceremony.intro.en.after}`,
+      text: ceremony.quoteEn,
+      inLanguage: "en",
     },
-    about: { "@id": absoluteUrl("/#person") },
-    description: `${item.intro.en.before}${item.intro.en.emphasis}${item.intro.en.after}`,
-    text: item.quoteEn,
-    inLanguage: "en",
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: niche.intro.en.emphasis,
+      url: niche.url,
+      datePublished: niche.datePublished,
+      author: {
+        "@type": "Person",
+        name: niche.author,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: niche.publisher,
+      },
+      about: { "@id": absoluteUrl("/#person") },
+      description: `${niche.intro.en.before}${niche.intro.en.emphasis}${niche.intro.en.after}`,
+      text: niche.quoteEn,
+      inLanguage: "en",
+    },
+  ];
 }
