@@ -290,7 +290,7 @@ export function WorksGallery({ images }: { images: readonly Work[] }) {
     <>
       <ul className="space-y-5">
         {images.map((work, index) => (
-          <li key={work.image} className="flex flex-col gap-[4px]">
+          <li key={work.image} className="flex flex-col gap-[6px]">
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
