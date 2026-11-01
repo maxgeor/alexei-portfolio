@@ -122,7 +122,6 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
               height={item.height}
               sizes={PRESS_IMAGE_SIZES}
               quality={IMAGE_QUALITY_MOBILE}
-              preload
             />
           </div>
           <div className="max-w-[75ch] space-y-0 leading-[20px]">

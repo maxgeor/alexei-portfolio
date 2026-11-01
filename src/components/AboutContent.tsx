@@ -38,7 +38,6 @@ export function AboutContent() {
       <ResponsivePicture
         alt={aboutImage.alt[lang]}
         className="block h-auto w-full pt-[4px]"
-        preload
         mobile={{
           src: aboutImage.image,
           width: aboutImage.width,
