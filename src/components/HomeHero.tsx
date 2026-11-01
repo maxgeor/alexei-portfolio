@@ -1,25 +1,36 @@
 "use client";
 
-import Image from "next/image";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
 import { homeImage } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import {
+  CONTENT_COLUMN_SIZES,
+  IMAGE_QUALITY_DESKTOP,
+  IMAGE_QUALITY_MOBILE,
+} from "@/lib/image-presets";
 
 export function HomeHero() {
   const { lang } = useLanguage();
 
   return (
-    <>
-      <Image
-        src={homeImage.image}
-        alt={homeImage.alt[lang]}
-        className="block h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
-        width={homeImage.width}
-        height={homeImage.height}
-        sizes="(max-width: 48rem) 100vw, 48rem"
-        preload
-        unoptimized
-        decoding="sync"
-      />
-    </>
+    <ResponsivePicture
+      alt={homeImage.alt[lang]}
+      className="block h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
+      preload
+      mobile={{
+        src: homeImage.mobile.image,
+        width: homeImage.mobile.width,
+        height: homeImage.mobile.height,
+        quality: IMAGE_QUALITY_MOBILE,
+        sizes: "100vw",
+      }}
+      desktop={{
+        src: homeImage.desktop.image,
+        width: homeImage.desktop.width,
+        height: homeImage.desktop.height,
+        quality: IMAGE_QUALITY_DESKTOP,
+        sizes: CONTENT_COLUMN_SIZES,
+      }}
+    />
   );
 }

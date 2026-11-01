@@ -1,22 +1,37 @@
 "use client";
 
-import Image from "next/image";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
 import { exhibition } from "@/data/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import {
+  CONTENT_COLUMN_SIZES,
+  IMAGE_QUALITY_DESKTOP,
+  IMAGE_QUALITY_MOBILE,
+} from "@/lib/image-presets";
 
 export function ExhibitionContent() {
   const { lang } = useLanguage();
 
   return (
     <>
-      <Image
-        src={exhibition.image}
+      <ResponsivePicture
         alt={exhibition.alt[lang]}
         className="mb-[4px] block w-full"
-        width={exhibition.width}
-        height={exhibition.height}
-        sizes="100vw"
         preload
+        mobile={{
+          src: exhibition.image,
+          width: exhibition.width,
+          height: exhibition.height,
+          quality: IMAGE_QUALITY_MOBILE,
+          sizes: CONTENT_COLUMN_SIZES,
+        }}
+        desktop={{
+          src: exhibition.image,
+          width: exhibition.width,
+          height: exhibition.height,
+          quality: IMAGE_QUALITY_DESKTOP,
+          sizes: CONTENT_COLUMN_SIZES,
+        }}
       />
       <p
         lang="en"
