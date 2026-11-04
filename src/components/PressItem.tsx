@@ -68,10 +68,6 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
             {intro.after}
           </p>
           <div className="flex flex-col gap-5">
-            <blockquote className="m-0 border-0 p-0">
-              <QuoteText text={item.quoteFr} lang="fr" quoteLang={quoteLang} />
-              <QuoteText text={item.quoteEn} lang="en" quoteLang={quoteLang} />
-            </blockquote>
             <p>
               <button
                 type="button"
@@ -93,6 +89,10 @@ function PressQuoteItem({ item }: { item: PressQuoteItem }) {
                 FR
               </button>
             </p>
+            <blockquote className="m-0 border-0 p-0">
+              <QuoteText text={item.quoteFr} lang="fr" quoteLang={quoteLang} />
+              <QuoteText text={item.quoteEn} lang="en" quoteLang={quoteLang} />
+            </blockquote>
           </div>
         </div>
       </div>
