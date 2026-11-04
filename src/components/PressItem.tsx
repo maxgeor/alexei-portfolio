@@ -108,7 +108,7 @@ function PressLinkItemComponent({ item }: { item: PressLinkItem }) {
       <div className="site-shell">
         <PressDivider />
         <a
-          className="press-link group flex max-w-[75ch] cursor-pointer flex-col gap-[7px] pt-[8px] no-underline"
+          className="press-link group flex max-w-[75ch] cursor-pointer flex-col gap-[4px] pt-[8px] no-underline"
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
