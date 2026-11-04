@@ -16,7 +16,7 @@ export function ExhibitionContent() {
     <>
       <ResponsivePicture
         alt={exhibition.alt[lang]}
-        className="mb-[4px] block w-full"
+        className="mb-[6px] block w-full"
         preload
         mobile={{
           src: exhibition.image,
